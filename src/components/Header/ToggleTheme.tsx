@@ -1,15 +1,14 @@
+import { cn } from '@/lib/utils/cn';
 import { useTheme } from '../../Providers/Theme/useTheme';
+import { Button } from '../ui/Button';
 
 export const ToggleTheme = () => {
   const { theme, toggleTheme } = useTheme();
   return (
     <div>
-      <button
-        onClick={() => toggleTheme()}
-        className=" rounded-sm bg-primary p-1 text-text-primary"
-      >
+      <Button className={cn('w-15 rounded-2xl')} onClick={() => toggleTheme()}>
         Theme
-      </button>
+      </Button>
     </div>
   );
 };

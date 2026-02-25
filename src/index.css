@@ -5,14 +5,15 @@
 
 :root {
   /* Фон - чистый светлый */
-  --color-bg: #ffffff;
+  --color-bg: #c3cbe8;
 
   /* Поверхности - очень светлый серо-голубой */
   --color-surface: #f8fafc;
 
   /* Основной цвет (Primary) - тот же яркий синий (узнаваемость бренда) */
   --color-primary: #2563eb;
-
+  /* hover */
+  --color-hover: #194096;
   /* Второстепенный - более насыщенный бирюзовый для контраста */
   --color-secondary: #0891b2;
 
@@ -23,7 +24,7 @@
   --color-text-secondary: #475569;
 
   /* Границы */
-  --color-border: #e2e8f0;
+  --color-border: #434826;
 }
 
 .dark {
@@ -35,6 +36,8 @@
 
   /* Основной цвет (Primary) - яркий электрический синий для кнопок/ссылок */
   --color-primary: #3b82f6;
+  /* hover */
+  --color-hover: #2958a3;
 
   /* Второстепенный (Secondary) - бирюзовый/голубой оттенок */
   --color-secondary: #06b6d4;
@@ -46,7 +49,7 @@
   --color-text-secondary: #94a3b8;
 
   /* Границы (Borders) */
-  --color-borderk: #334155;
+  --color-border: #6b5227;
 }
 
 @theme inline {
@@ -56,7 +59,8 @@
   --color-secondary: var(--color-secondary);
   --color-text-primary: var(--color-text-primary);
   --color-text-secondary: var(--color-text-secondary);
-  --color-text-borderk: var(--color-text-borderk);
+  --color-border: var(--color-border);
+  --color-hover: var(--color-hover);
 }
 body {
   display: flex;
