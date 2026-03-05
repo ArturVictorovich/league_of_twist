@@ -1,8 +1,14 @@
+import { startGameThunk } from '@/redux/GuessingGame/guessingGame.trunks';
 import { Button } from '../ui/Button';
+import { useAppDispatch } from '@/shared/hooks/redux';
 
 export const StartGame = () => {
+  const dispatch = useAppDispatch();
+  const handleStartGame = () => {
+    dispatch(startGameThunk());
+  };
   return (
-    <Button className="p-3   text-2xl rounded-2xl" onClick={() => {}}>
+    <Button onClick={handleStartGame} className="p-3 text-2xl rounded-2xl">
       Начать игру
     </Button>
   );

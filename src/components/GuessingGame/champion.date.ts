@@ -1,10 +1,4 @@
-export interface IChampion {
-  id: string;
-  name: string;
-  role: 'Mage' | 'Fighter' | 'Assassin' | 'Tank' | 'Marksman';
-  region: string;
-  image: string;
-}
+import type { IChampion } from '@/type/championsCard.type';
 
 export const CHAMPIONS: IChampion[] = [
   {
