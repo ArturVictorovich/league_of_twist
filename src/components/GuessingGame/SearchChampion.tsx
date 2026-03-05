@@ -2,31 +2,31 @@ import { useMemo, useState } from 'react';
 import type { ISelectOption } from '@/type/itemSearch.type';
 import { createFilter } from 'react-select';
 import Select, { type SingleValue } from 'react-select';
-import { CHAMPIONS, type IChampion } from './champion.date';
+
+import { useAppDispatch, useAppSelector } from '@/shared/hooks/redux';
+import { selectChampion } from '@/redux/GuessingGame/guessingGame.slice';
+
 export const SearchChampion = () => {
-  const [selectedChampion, setSelectedChampion] = useState<IChampion | null>(
-    null,
+  const dispatch = useAppDispatch();
+  const availableChampionsList = useAppSelector(
+    (state) => state.guessingGame.availableChampionsList,
   );
 
   const [selectValue, setSelectValue] = useState<ISelectOption | null>(null);
 
   const options = useMemo<ISelectOption[]>(
     () =>
-      CHAMPIONS.map(({ id, name }) => ({
+      availableChampionsList.map(({ id, name }) => ({
         value: id,
         label: name,
       })),
-    [],
+    availableChampionsList,
   );
   /* выбор персонажа */
   const handleChange = (option: SingleValue<ISelectOption>) => {
     if (!option) return;
-
-    const champion = CHAMPIONS.find((c) => c.id === option.value);
-    if (!champion) return;
-
-    setSelectedChampion(champion);
-    console.log(champion.name);
+    dispatch(selectChampion(option.value));
+    console.log(currentChampion.name);
     // очищаем инпут
     setSelectValue(null);
   };
@@ -48,3 +48,6 @@ export const SearchChampion = () => {
     </div>
   );
 };
+function currentChampion(value: string): any {
+  throw new Error('Function not implemented.');
+}

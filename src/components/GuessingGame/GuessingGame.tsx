@@ -1,14 +1,17 @@
 import { SearchChampion } from './SearchChampion';
 import { StartGame } from './StartGame';
-
+import { useAppSelector } from '@/shared/hooks/redux';
 export const GuessingGame = () => {
-  const start = true;
+  const startGame = useAppSelector(
+    (state) => state.guessingGame.targetChampion,
+  );
+
   return (
     <div
       className="guesGame w-screen flex flex-col justify-center items-center 
     "
     >
-      {!start ? <SearchChampion /> : <StartGame />}
+      {!!startGame ? <SearchChampion /> : <StartGame />}
     </div>
   );
 };
