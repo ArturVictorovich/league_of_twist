@@ -9,7 +9,7 @@ export const CHAMPIONS: IChampion[] = [
     lanes: ['топ'],
     regions: ['Демасия', 'Ноксус'],
     resource: 'без ресурса',
-    attackType: ['ближний'],
+    attackType: 'ближний',
     releaseYear: 2010,
     image:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Garen_0.jpg',
@@ -22,7 +22,7 @@ export const CHAMPIONS: IChampion[] = [
     lanes: ['топ'],
     regions: ['Ноксус'],
     resource: 'мана',
-    attackType: ['ближний'],
+    attackType: 'ближний',
     releaseYear: 2012,
     image:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Darius_0.jpg',
@@ -35,7 +35,7 @@ export const CHAMPIONS: IChampion[] = [
     lanes: ['топ'],
     regions: ['Демасия'],
     resource: 'мана',
-    attackType: ['ближний'],
+    attackType: 'ближний',
     releaseYear: 2015,
     image:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Fiora_0.jpg',
@@ -48,7 +48,7 @@ export const CHAMPIONS: IChampion[] = [
     lanes: ['топ'],
     regions: ['Шурима'],
     resource: 'кровь',
-    attackType: ['ближний'],
+    attackType: 'ближний',
     releaseYear: 2013,
     image:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_0.jpg',
@@ -61,7 +61,7 @@ export const CHAMPIONS: IChampion[] = [
     lanes: ['лес'],
     regions: ['Иония'],
     resource: 'энергия',
-    attackType: ['ближний'],
+    attackType: 'ближний',
     releaseYear: 2011,
     image:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/LeeSin_0.jpg',
@@ -74,7 +74,7 @@ export const CHAMPIONS: IChampion[] = [
     lanes: ['лес'],
     regions: ['Бездна'],
     resource: 'мана',
-    attackType: ['ближний'],
+    attackType: 'ближний',
     releaseYear: 2012,
     image:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Khazix_0.jpg',
@@ -87,7 +87,7 @@ export const CHAMPIONS: IChampion[] = [
     lanes: ['лес'],
     regions: ['Ноксус', 'Острова'],
     resource: 'мана',
-    attackType: ['дальний', 'ближний'],
+    attackType: 'смешанный',
     releaseYear: 2012,
     image:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Elise_0.jpg',
@@ -100,7 +100,7 @@ export const CHAMPIONS: IChampion[] = [
     lanes: ['лес'],
     regions: ['Пилтовер', 'Заун'],
     resource: 'мана',
-    attackType: ['ближний'],
+    attackType: 'ближний',
     releaseYear: 2012,
     image:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Vi_0.jpg',
@@ -113,7 +113,7 @@ export const CHAMPIONS: IChampion[] = [
     lanes: ['мид'],
     regions: ['Иония'],
     resource: 'мана',
-    attackType: ['дальний'],
+    attackType: 'дальний',
     releaseYear: 2011,
     image:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Ahri_0.jpg',
@@ -126,7 +126,7 @@ export const CHAMPIONS: IChampion[] = [
     lanes: ['мид'],
     regions: ['Иония'],
     resource: 'энергия',
-    attackType: ['ближний'],
+    attackType: 'ближний',
     releaseYear: 2012,
     image:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Zed_0.jpg',
@@ -139,7 +139,7 @@ export const CHAMPIONS: IChampion[] = [
     lanes: ['мид', 'саппорт'],
     regions: ['Демасия'],
     resource: 'мана',
-    attackType: ['дальний'],
+    attackType: 'дальний',
     releaseYear: 2010,
     image:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Lux_0.jpg',
@@ -152,7 +152,7 @@ export const CHAMPIONS: IChampion[] = [
     lanes: ['мид'],
     regions: ['Ноксус'],
     resource: 'без ресурса',
-    attackType: ['ближний'],
+    attackType: 'ближний',
     releaseYear: 2009,
     image:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Katarina_0.jpg',
@@ -165,7 +165,7 @@ export const CHAMPIONS: IChampion[] = [
     lanes: ['адк'],
     regions: ['Фрельйорд'],
     resource: 'мана',
-    attackType: ['дальний'],
+    attackType: 'дальний',
     releaseYear: 2009,
     image:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Ashe_0.jpg',
@@ -178,7 +178,7 @@ export const CHAMPIONS: IChampion[] = [
     lanes: ['адк'],
     regions: ['Заун'],
     resource: 'мана',
-    attackType: ['дальний'],
+    attackType: 'дальний',
     releaseYear: 2013,
     image:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Jinx_0.jpg',
@@ -191,7 +191,7 @@ export const CHAMPIONS: IChampion[] = [
     lanes: ['адк'],
     regions: ['Пилтовер'],
     resource: 'мана',
-    attackType: ['дальний'],
+    attackType: 'дальний',
     releaseYear: 2011,
     image:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Caitlyn_0.jpg',
@@ -204,7 +204,7 @@ export const CHAMPIONS: IChampion[] = [
     lanes: ['адк', 'топ'],
     regions: ['Демасия'],
     resource: 'мана',
-    attackType: ['дальний'],
+    attackType: 'дальний',
     releaseYear: 2011,
     image:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Vayne_0.jpg',
@@ -217,7 +217,7 @@ export const CHAMPIONS: IChampion[] = [
     lanes: ['саппорт'],
     regions: ['Острова'],
     resource: 'мана',
-    attackType: ['ближний'],
+    attackType: 'ближний',
     releaseYear: 2013,
     image:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Thresh_0.jpg',
@@ -230,7 +230,7 @@ export const CHAMPIONS: IChampion[] = [
     lanes: ['саппорт'],
     regions: ['Таргон'],
     resource: 'мана',
-    attackType: ['ближний'],
+    attackType: 'ближний',
     releaseYear: 2011,
     image:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Leona_0.jpg',
@@ -239,11 +239,11 @@ export const CHAMPIONS: IChampion[] = [
     id: 19,
     name: 'Сорака',
     gender: 'женский',
-    race: 'cущность',
+    race: 'сущность',
     lanes: ['саппорт'],
     regions: ['Таргон'],
     resource: 'мана',
-    attackType: ['дальний'],
+    attackType: 'дальний',
     releaseYear: 2009,
     image:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Soraka_0.jpg',
@@ -256,7 +256,7 @@ export const CHAMPIONS: IChampion[] = [
     lanes: ['саппорт'],
     regions: ['Иония'],
     resource: 'мана',
-    attackType: ['дальний'],
+    attackType: 'дальний',
     releaseYear: 2012,
     image:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Nami_0.jpg',

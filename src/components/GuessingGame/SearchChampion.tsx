@@ -20,7 +20,7 @@ export const SearchChampion = () => {
         value: id.toString(),
         label: name,
       })),
-    availableChampionsList,
+    [availableChampionsList],
   );
   /* выбор персонажа */
   const handleChange = (option: SingleValue<ISelectOption>) => {

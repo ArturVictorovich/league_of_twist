@@ -3,13 +3,12 @@ export type TLane = 'топ' | 'лес' | 'мид' | 'адк' | 'саппорт'
 export type TResource = 'мана' | 'энергия' | 'ярость' | 'без ресурса' | 'кровь';
 export type TRace =
   | 'человек'
-  | 'сушность '
+  | 'сущность'
   | 'даркин'
   | 'бездна'
   | 'вастайя'
-  | 'призрак'
-  | 'cущность';
-export type TAttackType = 'ближний' | 'дальний';
+  | 'призрак';
+export type TAttackType = 'ближний' | 'дальний' | 'смешанный';
 export type TRegions =
   | 'Острова'
   | 'Демасия'
@@ -20,8 +19,7 @@ export type TRegions =
   | 'Пилтовер'
   | 'Заун'
   | 'Фрельйорд'
-  | 'Таргон'
-  | 'Иония';
+  | 'Таргон';
 
 export interface IChampion {
   id: number;
@@ -31,7 +29,7 @@ export interface IChampion {
   lanes: TLane[];
   regions: TRegions | TRegions[];
   resource: TResource;
-  attackType: TAttackType[];
+  attackType: TAttackType;
   releaseYear: number;
   image: string;
 }

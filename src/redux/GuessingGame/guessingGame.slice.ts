@@ -2,7 +2,7 @@ import { CHAMPIONS } from '@/components/GuessingGame/champion.date';
 import type { IChampion } from '@/type/championsCard.type';
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 interface IInitialState {
-  targetChampion?: IChampion | null;
+  targetChampion: IChampion | null;
 
   availableChampionsList: IChampion[];
   guessedChampionsList: IChampion[];
