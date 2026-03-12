@@ -17,7 +17,7 @@ export const SearchChampion = () => {
   const options = useMemo<ISelectOption[]>(
     () =>
       availableChampionsList.map(({ id, name }) => ({
-        value: id,
+        value: id.toString(),
         label: name,
       })),
     availableChampionsList,
@@ -25,8 +25,7 @@ export const SearchChampion = () => {
   /* выбор персонажа */
   const handleChange = (option: SingleValue<ISelectOption>) => {
     if (!option) return;
-    dispatch(selectChampion(option.value));
-    console.log(currentChampion.name);
+    dispatch(selectChampion(Number(option.value)));
     // очищаем инпут
     setSelectValue(null);
   };
@@ -48,6 +47,3 @@ export const SearchChampion = () => {
     </div>
   );
 };
-function currentChampion(value: string): any {
-  throw new Error('Function not implemented.');
-}

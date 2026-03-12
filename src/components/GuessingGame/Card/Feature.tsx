@@ -1,14 +1,19 @@
 import type { ReactNode } from 'react';
-
+import { cn } from '@/lib/utils/cn';
 interface Props {
   children: ReactNode;
   onClick?: () => void;
   className?: string;
 }
 
-export const Feature = ({ children }: Props) => {
+export const Feature = ({ children, className }: Props) => {
   return (
-    <div className="border p-1 rounded-xs border-border flex items-center justify-center h-13 w-13 bg-secondary">
+    <div
+      className={cn(
+        'border gap-1 shrink-0 p-1 rounded-xs text-sm border-border flex-col wrap-break-word whitespace-normal flex items-center justify-center h-18 w-18 bg-secondary',
+        className,
+      )}
+    >
       {children}
     </div>
   );
