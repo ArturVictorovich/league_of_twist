@@ -8,7 +8,7 @@ export type TRace =
   | 'бездна'
   | 'вастайя'
   | 'призрак';
-export type TAttackType = 'ближний' | 'дальний' | 'смешанный';
+export type TAttackType = 'ближний' | 'дальний';
 export type TRegions =
   | 'Острова'
   | 'Демасия'
@@ -29,7 +29,7 @@ export interface IChampion {
   lanes: TLane[];
   regions: TRegions | TRegions[];
   resource: TResource;
-  attackType: TAttackType;
+  attackType: TAttackType | TAttackType[];
   releaseYear: number;
   image: string;
 }

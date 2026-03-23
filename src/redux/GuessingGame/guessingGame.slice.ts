@@ -25,6 +25,7 @@ export const guessingGameSlice = createSlice({
       state.targetChampion = CHAMPIONS[action.payload];
     },
     selectChampion: (state, action: PayloadAction<number>) => {
+      if (!state.targetChampion) return;
       const index = state.availableChampionsList.findIndex(
         (champion) => champion.id === action.payload,
       );
@@ -33,6 +34,9 @@ export const guessingGameSlice = createSlice({
 
       state.availableChampionsList.splice(index, 1);
       state.guessedChampionsList.push(champion);
+      if (state.targetChampion.id === action.payload) {
+        state.winGame = true;
+      }
     },
   },
 });

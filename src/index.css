@@ -80,3 +80,33 @@ button {
 .red {
   background: red;
 }
+/* анимация появления карточки  */
+@keyframes card-drop {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(6px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+/* анимация свойсв картчоки  */
+@keyframes feature-flip {
+  0% {
+    transform: rotateX(0);
+  }
+
+  50% {
+    transform: rotateX(90deg);
+  }
+
+  100% {
+    transform: rotateX(0);
+  }
+}

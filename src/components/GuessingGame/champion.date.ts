@@ -87,7 +87,7 @@ export const CHAMPIONS: IChampion[] = [
     lanes: ['лес'],
     regions: ['Ноксус', 'Острова'],
     resource: 'мана',
-    attackType: 'смешанный',
+    attackType: ['дальний', 'ближний'],
     releaseYear: 2012,
     image:
       'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Elise_0.jpg',
