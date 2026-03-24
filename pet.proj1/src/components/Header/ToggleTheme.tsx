@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils/cn';
 import { useTheme } from '../../Providers/Theme/useTheme';
-import { Button } from '../ui/Button';
+import { Button } from '../../shared/ui/Button';
 
 export const ToggleTheme = () => {
   const { theme, toggleTheme } = useTheme();

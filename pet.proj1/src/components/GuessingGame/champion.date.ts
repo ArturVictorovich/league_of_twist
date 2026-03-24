@@ -12,7 +12,7 @@ export const CHAMPIONS: IChampion[] = [
     attackType: 'ближний',
     releaseYear: 2010,
     image:
-      'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Garen_0.jpg',
+      'https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Garen_0.jpg',
   },
   {
     id: 2,
@@ -25,7 +25,7 @@ export const CHAMPIONS: IChampion[] = [
     attackType: 'ближний',
     releaseYear: 2012,
     image:
-      'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Darius_0.jpg',
+      'https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Darius_0.jpg',
   },
   {
     id: 3,
@@ -38,7 +38,7 @@ export const CHAMPIONS: IChampion[] = [
     attackType: 'ближний',
     releaseYear: 2015,
     image:
-      'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Fiora_0.jpg',
+      'https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Fiora_0.jpg',
   },
   {
     id: 4,
@@ -51,7 +51,7 @@ export const CHAMPIONS: IChampion[] = [
     attackType: 'ближний',
     releaseYear: 2013,
     image:
-      'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Aatrox_0.jpg',
+      'https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Aatrox_0.jpg',
   },
   {
     id: 5,
@@ -64,7 +64,7 @@ export const CHAMPIONS: IChampion[] = [
     attackType: 'ближний',
     releaseYear: 2011,
     image:
-      'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/LeeSin_0.jpg',
+      'https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/LeeSin_0.jpg',
   },
   {
     id: 6,
@@ -77,7 +77,7 @@ export const CHAMPIONS: IChampion[] = [
     attackType: 'ближний',
     releaseYear: 2012,
     image:
-      'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Khazix_0.jpg',
+      'https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Khazix_0.jpg',
   },
   {
     id: 7,
@@ -90,7 +90,7 @@ export const CHAMPIONS: IChampion[] = [
     attackType: ['дальний', 'ближний'],
     releaseYear: 2012,
     image:
-      'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Elise_0.jpg',
+      'https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Elise_0.jpg',
   },
   {
     id: 8,
@@ -103,7 +103,7 @@ export const CHAMPIONS: IChampion[] = [
     attackType: 'ближний',
     releaseYear: 2012,
     image:
-      'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Vi_0.jpg',
+      'https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Vi_0.jpg',
   },
   {
     id: 9,
@@ -116,7 +116,7 @@ export const CHAMPIONS: IChampion[] = [
     attackType: 'дальний',
     releaseYear: 2011,
     image:
-      'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Ahri_0.jpg',
+      'https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Ahri_0.jpg',
   },
   {
     id: 10,
@@ -129,7 +129,7 @@ export const CHAMPIONS: IChampion[] = [
     attackType: 'ближний',
     releaseYear: 2012,
     image:
-      'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Zed_0.jpg',
+      'https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Zed_0.jpg',
   },
   {
     id: 11,
@@ -142,7 +142,7 @@ export const CHAMPIONS: IChampion[] = [
     attackType: 'дальний',
     releaseYear: 2010,
     image:
-      'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Lux_0.jpg',
+      'https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Lux_0.jpg',
   },
   {
     id: 12,
@@ -155,7 +155,7 @@ export const CHAMPIONS: IChampion[] = [
     attackType: 'ближний',
     releaseYear: 2009,
     image:
-      'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Katarina_0.jpg',
+      'https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Katarina_0.jpg',
   },
   {
     id: 13,
@@ -168,7 +168,7 @@ export const CHAMPIONS: IChampion[] = [
     attackType: 'дальний',
     releaseYear: 2009,
     image:
-      'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Ashe_0.jpg',
+      'https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Ashe_0.jpg',
   },
   {
     id: 14,
@@ -181,7 +181,7 @@ export const CHAMPIONS: IChampion[] = [
     attackType: 'дальний',
     releaseYear: 2013,
     image:
-      'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Jinx_0.jpg',
+      'https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Jinx_0.jpg',
   },
   {
     id: 15,
@@ -194,7 +194,7 @@ export const CHAMPIONS: IChampion[] = [
     attackType: 'дальний',
     releaseYear: 2011,
     image:
-      'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Caitlyn_0.jpg',
+      'https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Caitlyn_0.jpg',
   },
   {
     id: 16,
@@ -207,7 +207,7 @@ export const CHAMPIONS: IChampion[] = [
     attackType: 'дальний',
     releaseYear: 2011,
     image:
-      'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Vayne_0.jpg',
+      'https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Vayne_0.jpg',
   },
   {
     id: 17,
@@ -220,7 +220,7 @@ export const CHAMPIONS: IChampion[] = [
     attackType: 'ближний',
     releaseYear: 2013,
     image:
-      'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Thresh_0.jpg',
+      'https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Thresh_0.jpg',
   },
   {
     id: 18,
@@ -233,7 +233,7 @@ export const CHAMPIONS: IChampion[] = [
     attackType: 'ближний',
     releaseYear: 2011,
     image:
-      'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Leona_0.jpg',
+      'https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Leona_0.jpg',
   },
   {
     id: 19,
@@ -246,7 +246,7 @@ export const CHAMPIONS: IChampion[] = [
     attackType: 'дальний',
     releaseYear: 2009,
     image:
-      'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Soraka_0.jpg',
+      'https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Soraka_0.jpg',
   },
   {
     id: 20,
@@ -259,6 +259,6 @@ export const CHAMPIONS: IChampion[] = [
     attackType: 'дальний',
     releaseYear: 2012,
     image:
-      'https://ddragon.leagueoflegends.com/cdn/img/champion/loading/Nami_0.jpg',
+      'https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Nami_0.jpg',
   },
 ];

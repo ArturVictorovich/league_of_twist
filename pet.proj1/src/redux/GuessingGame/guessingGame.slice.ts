@@ -11,7 +11,6 @@ interface IInitialState {
 
 const initialState: IInitialState = {
   targetChampion: null,
-
   availableChampionsList: CHAMPIONS,
   guessedChampionsList: [],
   winGame: false,
@@ -21,8 +20,14 @@ export const guessingGameSlice = createSlice({
   name: 'guessingGame',
   initialState,
   reducers: {
-    startGame: (state, action: PayloadAction<number>) => {
+    targetChampion: (state, action: PayloadAction<number>) => {
       state.targetChampion = CHAMPIONS[action.payload];
+    },
+    restartGame: (state) => {
+      state.targetChampion = null;
+      state.availableChampionsList = CHAMPIONS;
+      state.guessedChampionsList = [];
+      state.winGame = false;
     },
     selectChampion: (state, action: PayloadAction<number>) => {
       if (!state.targetChampion) return;
@@ -41,6 +46,7 @@ export const guessingGameSlice = createSlice({
   },
 });
 
-export const { startGame, selectChampion } = guessingGameSlice.actions;
+export const { targetChampion, selectChampion, restartGame } =
+  guessingGameSlice.actions;
 
 export default guessingGameSlice.reducer;

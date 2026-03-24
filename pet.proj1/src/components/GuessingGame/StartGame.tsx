@@ -1,5 +1,5 @@
 import { startGameThunk } from '@/redux/GuessingGame/guessingGame.trunks';
-import { Button } from '../ui/Button';
+import { Button } from '../../shared/ui/Button';
 import { useAppDispatch } from '@/shared/hooks/redux';
 
 export const StartGame = () => {
