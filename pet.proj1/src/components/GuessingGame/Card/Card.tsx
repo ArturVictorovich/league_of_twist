@@ -34,7 +34,7 @@ export const Card = ({ champion }: Props) => {
           return (
             <Feature className={color} key={key}>
               {!Array.isArray(currentFeature) ? (
-                <div>
+                <div className="flex items-center justify-center flex-col">
                   {hint === 'higher' && <FaChevronUp />}
                   {currentFeature}
                   {hint === 'lower' && <FaChevronDown />}

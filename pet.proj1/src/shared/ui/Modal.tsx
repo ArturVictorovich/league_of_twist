@@ -16,7 +16,7 @@ export const Modal = ({ isOpen, onClose, children }: IModalProps) => {
 
   return (
     <div
-      className="fixed  flex items-center justify-center bg-black/50 inset-0 z-50"
+      className="fixed animate-[card-drop_0.60s_ease-out_forwards] flex items-center justify-center bg-black/50 inset-0 z-50"
       onClick={onClose}
     >
       <div
@@ -27,7 +27,7 @@ export const Modal = ({ isOpen, onClose, children }: IModalProps) => {
           <h2 className="mb-5 text-text-primary text-xl font-bold">
             {children}
           </h2>
-          <div className="text-center text-text-secondary italic">{`Загаданный чемпион был(а) ${targetChampion?.name}`}</div>
+          <div className="text-center text-text-secondary italic">{`Загаданный чемпион был(а): ${targetChampion?.name}`}</div>
 
           <img
             className="h-20 w-20"

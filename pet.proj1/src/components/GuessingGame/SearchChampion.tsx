@@ -1,6 +1,8 @@
+'use client';
+
 import { useMemo, useState } from 'react';
 import type { ISelectOption } from '@/type/itemSearch.type';
-import { createFilter } from 'react-select';
+import { createFilter, type InputActionMeta } from 'react-select';
 import Select, { type SingleValue } from 'react-select';
 
 import { useAppDispatch, useAppSelector } from '@/shared/hooks/redux';
@@ -8,10 +10,13 @@ import { selectChampion } from '@/redux/GuessingGame/guessingGame.slice';
 
 export const SearchChampion = () => {
   const dispatch = useAppDispatch();
+
   const availableChampionsList = useAppSelector(
     (state) => state.guessingGame.availableChampionsList,
   );
 
+  const [inputValue, setInputValue] = useState('');
+  const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [selectValue, setSelectValue] = useState<ISelectOption | null>(null);
 
   const options = useMemo<ISelectOption[]>(
@@ -22,12 +27,24 @@ export const SearchChampion = () => {
       })),
     [availableChampionsList],
   );
-  /* выбор персонажа */
+
+  const handleInputChange = (value: string, meta: InputActionMeta) => {
+    if (meta.action === 'input-change') {
+      setInputValue(value);
+      setMenuIsOpen(value.length > 0);
+    }
+    return value;
+  };
+
   const handleChange = (option: SingleValue<ISelectOption>) => {
     if (!option) return;
+
     dispatch(selectChampion(Number(option.value)));
-    // очищаем инпут
+
+    // ✅ полный reset
     setSelectValue(null);
+    setInputValue('');
+    setMenuIsOpen(false);
   };
 
   return (
@@ -35,13 +52,22 @@ export const SearchChampion = () => {
       <Select
         value={selectValue}
         options={options}
+        inputValue={inputValue}
+        onInputChange={handleInputChange}
+        menuIsOpen={menuIsOpen}
+        onMenuClose={() => setMenuIsOpen(false)}
+        onFocus={() => {
+          if (inputValue.length > 0) {
+            setMenuIsOpen(true);
+          }
+        }}
         onChange={handleChange}
         placeholder="Начни вводить имя..."
         isClearable
         noOptionsMessage={() => 'Ничего не найдено'}
         filterOption={createFilter({
           ignoreCase: true,
-          matchFrom: 'any',
+          matchFrom: 'start',
         })}
       />
     </div>
