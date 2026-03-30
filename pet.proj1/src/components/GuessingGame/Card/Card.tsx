@@ -3,7 +3,9 @@ import { Feature } from './Feature';
 import type { IChampion } from '@/type/championsCard.type';
 import { useAppSelector } from '@/shared/hooks/redux';
 import { championFeatures } from './championFeatures';
-import { useEffect, useState } from 'react';
+import { getYearHint } from '@/shared/utils/getYearHint';
+import { FaChevronUp } from 'react-icons/fa';
+import { FaChevronDown } from 'react-icons/fa';
 interface Props {
   champion: IChampion;
 }
@@ -20,21 +22,30 @@ export const Card = ({ champion }: Props) => {
     <div className="flex text-center gap-1 overflow-x-auto animate-[card-drop_0.25s_ease-out_forwards]">
       {championFeatures
         .filter((f) => f !== 'id' && 'image')
-        .map((key, i) => {
+        .map((key) => {
           const guessFeature = guesstingChampion[key];
           const currentFeature = champion[key];
-
+          const hint =
+            key === 'releaseYear'
+              ? getYearHint(champion.releaseYear, guesstingChampion.releaseYear)
+              : null;
           const color = getColorCard(currentFeature, guessFeature);
 
           return (
-            <Feature className={`${color} `} key={key}>
-              {!Array.isArray(currentFeature)
-                ? currentFeature
-                : currentFeature.map((f) => (
-                    <span key={f} className="text-xs text-center flex flex-col">
-                      {f}
-                    </span>
-                  ))}
+            <Feature className={color} key={key}>
+              {!Array.isArray(currentFeature) ? (
+                <div>
+                  {hint === 'higher' && <FaChevronUp />}
+                  {currentFeature}
+                  {hint === 'lower' && <FaChevronDown />}
+                </div>
+              ) : (
+                currentFeature.map((f) => (
+                  <span key={f} className="text-xs text-center flex flex-col">
+                    {f}
+                  </span>
+                ))
+              )}
             </Feature>
           );
         })}
