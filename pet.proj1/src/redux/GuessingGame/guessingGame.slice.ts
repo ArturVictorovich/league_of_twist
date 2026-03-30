@@ -7,6 +7,7 @@ interface IInitialState {
   availableChampionsList: IChampion[];
   guessedChampionsList: IChampion[];
   winGame: boolean;
+  ff: boolean;
 }
 
 const initialState: IInitialState = {
@@ -14,6 +15,7 @@ const initialState: IInitialState = {
   availableChampionsList: CHAMPIONS,
   guessedChampionsList: [],
   winGame: false,
+  ff: false,
 };
 
 export const guessingGameSlice = createSlice({
@@ -23,11 +25,15 @@ export const guessingGameSlice = createSlice({
     targetChampion: (state, action: PayloadAction<number>) => {
       state.targetChampion = CHAMPIONS[action.payload];
     },
+    ffGame: (state) => {
+      state.ff = true;
+    },
     restartGame: (state) => {
       state.targetChampion = null;
       state.availableChampionsList = CHAMPIONS;
       state.guessedChampionsList = [];
       state.winGame = false;
+      state.ff = false;
     },
     selectChampion: (state, action: PayloadAction<number>) => {
       if (!state.targetChampion) return;
@@ -46,7 +52,7 @@ export const guessingGameSlice = createSlice({
   },
 });
 
-export const { targetChampion, selectChampion, restartGame } =
+export const { targetChampion, selectChampion, restartGame, ffGame } =
   guessingGameSlice.actions;
 
 export default guessingGameSlice.reducer;
