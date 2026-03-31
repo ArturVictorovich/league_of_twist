@@ -1,21 +1,20 @@
 import { CHAMPIONS } from '@/components/GuessingGame/champion.date';
 import type { IChampion } from '@/type/championsCard.type';
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
+type TGameStatus = 'playing' | 'win' | 'lose' | 'idle';
 interface IInitialState {
   targetChampion: IChampion | null;
 
   availableChampionsList: IChampion[];
   guessedChampionsList: IChampion[];
-  winGame: boolean;
-  ff: boolean;
+  gameStatus: TGameStatus;
 }
 
 const initialState: IInitialState = {
   targetChampion: null,
   availableChampionsList: CHAMPIONS,
   guessedChampionsList: [],
-  winGame: false,
-  ff: false,
+  gameStatus: 'idle',
 };
 
 export const guessingGameSlice = createSlice({
@@ -24,16 +23,16 @@ export const guessingGameSlice = createSlice({
   reducers: {
     targetChampion: (state, action: PayloadAction<number>) => {
       state.targetChampion = CHAMPIONS[action.payload];
+      state.gameStatus = 'playing';
     },
     ffGame: (state) => {
-      state.ff = true;
+      state.gameStatus = 'lose';
     },
     restartGame: (state) => {
       state.targetChampion = null;
       state.availableChampionsList = CHAMPIONS;
       state.guessedChampionsList = [];
-      state.winGame = false;
-      state.ff = false;
+      state.gameStatus = 'idle';
     },
     selectChampion: (state, action: PayloadAction<number>) => {
       if (!state.targetChampion) return;
@@ -46,7 +45,7 @@ export const guessingGameSlice = createSlice({
       state.availableChampionsList.splice(index, 1);
       state.guessedChampionsList.push(champion);
       if (state.targetChampion.id === action.payload) {
-        state.winGame = true;
+        state.gameStatus = 'win';
       }
     },
   },

@@ -14,36 +14,31 @@ export const GuessingGame = () => {
   const handleFF = () => {
     dispatch(ffGame());
   };
-  const targetChampion = useAppSelector(
-    (state) => state.guessingGame.targetChampion,
-  );
+
   const guessedChampionsList = useAppSelector(
     (state) => state.guessingGame.guessedChampionsList,
   );
-  const winGame = useAppSelector((state) => state.guessingGame.winGame);
-  const losegame = useAppSelector((state) => state.guessingGame.ff);
+  const gameStatus = useAppSelector((state) => state.guessingGame.gameStatus);
 
   return (
-    <div
-      className="guesGame w-screen flex flex-col justify-center items-center 
-    "
-    >
-      {!!targetChampion ? <SearchChampion /> : <StartGame />}
-      {guessedChampionsList.length > 3 && (
-        <Button
-          className="mb-2 w-10 animate-[card-drop_0.45s_ease-out_forwards]"
-          onClick={handleFF}
-        >
-          ff
-        </Button>
-      )}
+    <div className="guesGame w-screen flex flex-col justify-center items-center">
+      {gameStatus === 'idle' ? <StartGame /> : <SearchChampion />}
 
-      {!!targetChampion && <CardList />}
-      <Modal onClose={handleonClose} isOpen={winGame}>
-        Победа
-      </Modal>
-      <Modal onClose={handleonClose} isOpen={losegame}>
-        Поражение
+      <Button
+        isOpen={guessedChampionsList.length > 3 && gameStatus === 'playing'}
+        className="mb-2 w-10 animate-[card-drop_0.45s_ease-out_forwards]"
+        onClick={handleFF}
+      >
+        ff
+      </Button>
+
+      <CardList />
+      <Modal
+        colorModal={gameStatus === 'win'}
+        onClose={handleonClose}
+        isOpen={gameStatus === 'win' || gameStatus === 'lose'}
+      >
+        {gameStatus === 'win' ? 'Победа!' : 'Поражение!'}
       </Modal>
     </div>
   );

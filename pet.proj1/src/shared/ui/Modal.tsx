@@ -1,14 +1,21 @@
 import type { ReactNode } from 'react';
 import { Button } from './Button';
 import { useAppSelector } from '@/shared/hooks/redux';
+import { cn } from '@/lib/utils';
 
 interface IModalProps {
   isOpen: boolean;
   onClose: () => void;
   children: ReactNode;
+  colorModal?: boolean;
 }
 
-export const Modal = ({ isOpen, onClose, children }: IModalProps) => {
+export const Modal = ({
+  isOpen,
+  onClose,
+  children,
+  colorModal,
+}: IModalProps) => {
   const targetChampion = useAppSelector(
     (state) => state.guessingGame.targetChampion,
   );
@@ -20,7 +27,9 @@ export const Modal = ({ isOpen, onClose, children }: IModalProps) => {
       onClick={onClose}
     >
       <div
-        className="bg-surface w-5/6 flex flex-col items-center gap-2 rounded-xl p-6 shadow-xl"
+        className={cn(
+          `${colorModal ? 'bg-green-800' : 'bg-red-800'} flex flex-col items-center gap-2 rounded-xl p-6 shadow-xl`,
+        )}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex justify-center items-center flex-col">

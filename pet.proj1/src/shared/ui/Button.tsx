@@ -2,12 +2,19 @@ import { cn } from '@/lib/utils/cn';
 import type { ReactNode } from 'react';
 
 interface IButtonProps {
+  isOpen?: boolean;
   children: ReactNode;
   className?: string;
   onClick: () => void;
   disabled?: boolean;
 }
-export const Button = ({ children, className, onClick }: IButtonProps) => {
+export const Button = ({
+  children,
+  className,
+  onClick,
+  isOpen,
+}: IButtonProps) => {
+  if (isOpen === false) return null;
   return (
     <button
       onClick={onClick}
