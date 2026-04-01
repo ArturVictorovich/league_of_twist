@@ -21,7 +21,9 @@ export const GuessingGame = () => {
   const gameStatus = useAppSelector((state) => state.guessingGame.gameStatus);
 
   return (
-    <div className="guesGame w-screen flex flex-col justify-center items-center">
+    //
+    <div className="guesGame flex flex-col pt-25 items-center justify-start bg-bg min-h-screen w-full ">
+      {/* заменить логику рендера через тернарный оператор на состояние внутри компонентов отдельно  */}
       {gameStatus === 'idle' ? <StartGame /> : <SearchChampion />}
 
       <Button
@@ -33,6 +35,7 @@ export const GuessingGame = () => {
       </Button>
 
       <CardList />
+
       <Modal
         colorModal={gameStatus === 'win'}
         onClose={handleonClose}

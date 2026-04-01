@@ -19,9 +19,9 @@ export const Card = ({ champion }: Props) => {
     return null;
   }
   return (
-    <div className="flex text-center gap-1 overflow-x-auto animate-[card-drop_0.25s_ease-out_forwards]">
+    <div className="flex text-center gap-1 overflow-x-auto animate-[card-drop_0.70s_ease-out_forwards]">
       {championFeatures
-        .filter((f) => f !== 'id' && 'image')
+        .filter((f) => f !== 'id' && f !== 'image')
         .map((key) => {
           const guessFeature = guesstingChampion[key];
           const currentFeature = champion[key];
