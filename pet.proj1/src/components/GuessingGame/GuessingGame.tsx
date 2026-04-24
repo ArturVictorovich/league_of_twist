@@ -1,11 +1,11 @@
-import { Modal } from '@/shared/ui/Modal';
+import { Modal } from '@/components/ui/Modal';
 
 import { CardList } from './Card/CardList';
 import { SearchChampion } from './SearchChampion';
 import { StartGame } from './StartGame';
 import { useAppDispatch, useAppSelector } from '@/shared/hooks/redux';
 import { ffGame, restartGame } from '@/redux/GuessingGame/guessingGame.slice';
-import { Button } from '@/shared/ui/Button';
+import { Button } from '@/components/ui/Button';
 export const GuessingGame = () => {
   const dispatch = useAppDispatch();
   const handleonClose = () => {
@@ -21,14 +21,14 @@ export const GuessingGame = () => {
   const gameStatus = useAppSelector((state) => state.guessingGame.gameStatus);
 
   return (
-    //
-    <div className="guesGame flex flex-col pt-25 items-center justify-start bg-bg min-h-screen w-full ">
-      {/* заменить логику рендера через тернарный оператор на состояние внутри компонентов отдельно  */}
-      {gameStatus === 'idle' ? <StartGame /> : <SearchChampion />}
+    <div className="guesGame relative flex flex-col p-1 items-center  bg-bg min-h-screen w-full ">
+      <StartGame />
+      <SearchChampion />
 
       <Button
         isOpen={guessedChampionsList.length > 3 && gameStatus === 'playing'}
-        className="mb-2 w-10 animate-[card-drop_0.45s_ease-out_forwards]"
+        className="w-12 font-bold absolute left-1/2 -translate-x-1/2 top-13  animate-[card-drop_0.45s_ease-out_forwards]
+        md:w-16 md:rounded-md md:text-lg"
         onClick={handleFF}
       >
         ff

@@ -19,7 +19,7 @@ export const Card = ({ champion }: Props) => {
     return null;
   }
   return (
-    <div className="flex text-center gap-1 overflow-x-auto animate-[card-drop_0.70s_ease-out_forwards]">
+    <div className="flex text-center gap-1 animate-[card-drop_0.70s_ease-out_forwards]">
       {championFeatures
         .filter((f) => f !== 'id' && f !== 'image')
         .map((key) => {
@@ -41,7 +41,10 @@ export const Card = ({ champion }: Props) => {
                 </div>
               ) : (
                 currentFeature.map((f) => (
-                  <span key={f} className="text-xs text-center flex flex-col">
+                  <span
+                    key={f}
+                    className="text-xs md:text-base text-center flex flex-col"
+                  >
                     {f}
                   </span>
                 ))

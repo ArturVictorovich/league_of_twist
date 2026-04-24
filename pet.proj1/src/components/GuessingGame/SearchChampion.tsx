@@ -10,7 +10,7 @@ import { selectChampion } from '@/redux/GuessingGame/guessingGame.slice';
 
 export const SearchChampion = () => {
   const dispatch = useAppDispatch();
-
+  const gameStatus = useAppSelector((state) => state.guessingGame.gameStatus);
   const availableChampionsList = useAppSelector(
     (state) => state.guessingGame.availableChampionsList,
   );
@@ -46,9 +46,10 @@ export const SearchChampion = () => {
     setInputValue('');
     setMenuIsOpen(false);
   };
-
+  const styleSelect = 'text-xl';
+  if (gameStatus !== 'playing') return null;
   return (
-    <div className="w-3/4 mb-7">
+    <div className="w-3/4 mb-9">
       <Select
         value={selectValue}
         options={options}

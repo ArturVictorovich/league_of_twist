@@ -28,18 +28,19 @@ export const Modal = ({
     >
       <div
         className={cn(
-          `${colorModal ? 'bg-green-800' : 'bg-red-800'} flex flex-col items-center gap-2 rounded-xl p-6 shadow-xl`,
+          `${colorModal ? 'bg-green-800' : 'bg-red-800'} flex flex-col items-center gap-2 rounded-xl p-6 shadow-xl
+          md:w-110 md:p-8 md:h-85 md:rounded-3xl md:shadow-3xl`,
         )}
         onClick={(e) => e.stopPropagation()}
       >
         <div className="flex justify-center items-center flex-col">
-          <h2 className="mb-5 text-text-primary text-xl font-bold">
+          <h2 className="mb-5 text-text-primary text-xl font-bold md:text-3xl">
             {children}
           </h2>
-          <div className="text-center text-text-secondary italic">{`Загаданный чемпион был(а): ${targetChampion?.name}`}</div>
+          <div className="text-center text-text-secondary italic md:text-xl md:mb-3">{`Загаданный чемпион был(а): ${targetChampion?.name}`}</div>
 
           <img
-            className="h-20 w-20"
+            className="h-20 w-20 md:h-30 md:w-30"
             src={targetChampion?.image}
             alt={targetChampion?.name}
           />

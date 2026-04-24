@@ -11,3 +11,14 @@ export const championFeatures: (keyof IChampion)[] = [
   'attackType',
   'releaseYear',
 ];
+
+export const nameColumnHeader = [
+  'Имя',
+  'Пол',
+  'Раса',
+  'Линия',
+  'Регион',
+  'Ресурс',
+  'Тип атаки',
+  'Год выпуска',
+];

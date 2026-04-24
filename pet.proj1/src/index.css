@@ -62,9 +62,8 @@
   --color-border: var(--color-border);
   --color-hover: var(--color-hover);
 }
+html,
 body {
-  display: flex;
-  min-width: 320px;
   margin: 0;
   padding: 0;
 }
@@ -108,5 +107,28 @@ button {
 
   100% {
     transform: rotateX(0);
+  }
+}
+@layer base {
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar {
+    /* width: 4px; */
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0f172a; /* slate-900 */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #334155; /* slate-700 */
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #475569;
   }
 }
