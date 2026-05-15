@@ -10,7 +10,12 @@ export const StartGame = () => {
   };
   if (gameStatus !== 'idle') return null;
   return (
-    <Button onClick={handleStartGame} className="p-3 text-2xl rounded-2xl">
+    <Button
+      title="Начать игру"
+      type="button"
+      onClick={handleStartGame}
+      className="p-3 text-2xl rounded-2xl"
+    >
       Начать игру
     </Button>
   );

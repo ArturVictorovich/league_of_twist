@@ -6,8 +6,8 @@ interface IButtonProps {
   children: ReactNode;
   className?: string;
   onClick: () => void;
-  disabled?: boolean;
-  type?: 'button' | 'submit' | 'reset';
+  title: string;
+  type: 'button' | 'submit' | 'reset';
 }
 export const Button = ({
   children,

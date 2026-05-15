@@ -1,4 +1,4 @@
-import { Modal } from '@/components/ui/Modal';
+import { Modal } from '@/components/GuessingGame/GameResultModalContent';
 
 import { CardList } from './Card/CardList';
 import { SearchChampion } from './SearchChampion';
@@ -14,7 +14,9 @@ export const GuessingGame = () => {
   const handleFF = () => {
     dispatch(ffGame());
   };
-
+  const targetChampion = useAppSelector(
+    (state) => state.guessingGame.targetChampion,
+  );
   const guessedChampionsList = useAppSelector(
     (state) => state.guessingGame.guessedChampionsList,
   );
@@ -26,10 +28,12 @@ export const GuessingGame = () => {
       <SearchChampion />
 
       <Button
+        type="button"
         isOpen={guessedChampionsList.length > 3 && gameStatus === 'playing'}
         className="w-12 font-bold absolute left-1/2 -translate-x-1/2 top-13  animate-[card-drop_0.45s_ease-out_forwards]
         md:w-16 md:rounded-md md:text-lg"
         onClick={handleFF}
+        title="Сдаться"
       >
         ff
       </Button>
@@ -37,7 +41,8 @@ export const GuessingGame = () => {
       <CardList />
 
       <Modal
-        colorModal={gameStatus === 'win'}
+        targetChampion={targetChampion}
+        isWin={gameStatus === 'win'}
         onClose={handleonClose}
         isOpen={gameStatus === 'win' || gameStatus === 'lose'}
       >

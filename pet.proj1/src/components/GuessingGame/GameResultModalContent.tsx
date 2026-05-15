@@ -1,24 +1,24 @@
 import type { ReactNode } from 'react';
-import { Button } from './Button';
-import { useAppSelector } from '@/shared/hooks/redux';
-import { cn } from '@/lib/utils';
+import { Button } from '../ui/Button';
+
+import { cn } from '@/lib/utils/cn';
+import type { IChampion } from '@/type/championsCard.type';
 
 interface IModalProps {
   isOpen: boolean;
   onClose: () => void;
   children: ReactNode;
-  colorModal?: boolean;
+  isWin: boolean;
+  targetChampion: IChampion | null;
 }
 
 export const Modal = ({
   isOpen,
   onClose,
   children,
-  colorModal,
+  isWin,
+  targetChampion,
 }: IModalProps) => {
-  const targetChampion = useAppSelector(
-    (state) => state.guessingGame.targetChampion,
-  );
   if (!isOpen) return null;
 
   return (
@@ -28,7 +28,7 @@ export const Modal = ({
     >
       <div
         className={cn(
-          `${colorModal ? 'bg-green-800' : 'bg-red-800'} flex flex-col items-center gap-2 rounded-xl p-6 shadow-xl
+          `${isWin ? 'bg-green-800' : 'bg-red-800'} flex flex-col items-center gap-2 rounded-xl p-6 shadow-xl
           md:w-110 md:p-8 md:h-85 md:rounded-3xl md:shadow-3xl`,
         )}
         onClick={(e) => e.stopPropagation()}
@@ -46,7 +46,12 @@ export const Modal = ({
           />
 
           <div className="flex justify-center gap-3">
-            <Button className="mt-4 w-40 h-12 rounded-lg" onClick={onClose}>
+            <Button
+              title="Начать снова"
+              type="button"
+              className="mt-4 w-40 h-12 rounded-lg"
+              onClick={onClose}
+            >
               Начать снова
             </Button>
           </div>
