@@ -1,14 +1,14 @@
-import { Modal } from '@/components/GuessingGame/GameResultModalContent';
+import { GameResultModal } from '@/components/GuessingGame/GameResultModal';
 
 import { CardList } from './Card/CardList';
-import { SearchChampion } from './SearchChampion';
+import { SearchChampion } from './SearchChampion/SearchChampion';
 import { StartGame } from './StartGame';
 import { useAppDispatch, useAppSelector } from '@/shared/hooks/redux';
 import { ffGame, restartGame } from '@/redux/GuessingGame/guessingGame.slice';
 import { Button } from '@/components/ui/Button';
 export const GuessingGame = () => {
   const dispatch = useAppDispatch();
-  const handleonClose = () => {
+  const handleRestartGame = () => {
     dispatch(restartGame());
   };
   const handleFF = () => {
@@ -21,9 +21,11 @@ export const GuessingGame = () => {
     (state) => state.guessingGame.guessedChampionsList,
   );
   const gameStatus = useAppSelector((state) => state.guessingGame.gameStatus);
+  const isGameFinished = gameStatus === 'win' || gameStatus === 'lose';
+  const isWin = gameStatus === 'win';
 
   return (
-    <div className="guesGame relative flex flex-col p-1 items-center  bg-bg min-h-screen w-full ">
+    <div className="gGame relative flex flex-col p-1 items-center  bg-bg min-h-screen w-full ">
       <StartGame />
       <SearchChampion />
 
@@ -40,14 +42,14 @@ export const GuessingGame = () => {
 
       <CardList />
 
-      <Modal
+      <GameResultModal
         targetChampion={targetChampion}
-        isWin={gameStatus === 'win'}
-        onClose={handleonClose}
-        isOpen={gameStatus === 'win' || gameStatus === 'lose'}
+        isWin={isWin}
+        onClose={handleRestartGame}
+        isOpen={isGameFinished}
       >
-        {gameStatus === 'win' ? 'Победа!' : 'Поражение!'}
-      </Modal>
+        {isWin ? 'Победа!' : 'Поражение!'}
+      </GameResultModal>
     </div>
   );
 };

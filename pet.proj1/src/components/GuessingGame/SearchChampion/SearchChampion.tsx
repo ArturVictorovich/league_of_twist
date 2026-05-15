@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import type { ISelectOption } from '@/type/itemSearch.type';
+import type { ISelectOption } from '@/components/GuessingGame/SearchChampion/itemSearch.type';
 import { createFilter, type InputActionMeta } from 'react-select';
 import Select, { type SingleValue } from 'react-select';
 
@@ -33,16 +33,17 @@ export const SearchChampion = () => {
     }
     return value;
   };
-
+  const resetSelectState = () => {
+    setSelectValue(null);
+    setInputValue('');
+    setMenuIsOpen(false);
+  };
   const handleChange = (option: SingleValue<ISelectOption>) => {
     if (!option) return;
 
     dispatch(selectChampion(Number(option.value)));
 
-    // ✅ полный reset
-    setSelectValue(null);
-    setInputValue('');
-    setMenuIsOpen(false);
+    resetSelectState();
   };
 
   if (gameStatus !== 'playing') return null;

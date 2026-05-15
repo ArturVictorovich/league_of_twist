@@ -1,73 +1,188 @@
-# React + TypeScript + Vite
+# League of Legends Guessing Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Интерактивная игра по мотивам League of Legends, в которой нужно угадать случайно выбранного чемпиона по его характеристикам.
 
-Currently, two official plugins are available:
+Проект создан как pet-project для практики React, TypeScript, Redux Toolkit и работы с пользовательским интерфейсом.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Демо
 
-## React Compiler
+[Неподтверждено] Демо пока не добавлено.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+После деплоя сюда нужно вставить ссылку:
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```txt
+https://your-demo-link.com
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Скриншоты
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+[Неподтверждено] Скриншоты пока не добавлены.
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Рекомендуется добавить 2–3 изображения:
+
+- главный экран игры;
+- процесс угадывания;
+- модальное окно победы/поражения.
+
+Пример структуры:
+
+```md
+![Главный экран](./screenshots/main.png)
+![Игровой процесс](./screenshots/gameplay.png)
+![Результат игры](./screenshots/result.png)
 ```
+
+## Описание проекта
+
+Игроку предлагается угадать случайного чемпиона League of Legends. После выбора чемпиона приложение сравнивает его характеристики с загаданным персонажем и показывает результат сравнения.
+
+Проект помогает отработать:
+
+- работу с состоянием приложения;
+- типизацию данных;
+- компонентный подход;
+- условный рендеринг;
+- обработку пользовательского ввода;
+- базовую архитектуру frontend-приложения.
+
+## Основной функционал
+
+- запуск новой игры;
+- случайный выбор загаданного чемпиона;
+- поиск и выбор чемпиона;
+- сравнение выбранного чемпиона с загаданным;
+- отображение результата по характеристикам;
+- состояние победы и поражения;
+- возможность сдаться;
+- модальное окно результата;
+- переключение светлой и тёмной темы;
+- адаптивная верстка.
+
+## Стек технологий
+
+- React
+- TypeScript
+- Redux Toolkit
+- React Redux
+- Vite
+- Tailwind CSS
+- React Select
+- React Icons
+- ESLint
+
+## Установка и запуск
+
+Склонируйте репозиторий:
+
+```bash
+git clone https://github.com/ArturVictorovich/some_code.git
+```
+
+Перейдите в папку проекта:
+
+```bash
+cd some_code/pet.proj1
+```
+
+Установите зависимости:
+
+```bash
+npm install
+```
+
+Запустите проект в режиме разработки:
+
+```bash
+npm run dev
+```
+
+## Доступные скрипты
+
+Запуск проекта:
+
+```bash
+npm run dev
+```
+
+Проверка кода через ESLint:
+
+```bash
+npm run lint
+```
+
+Сборка production-версии:
+
+```bash
+npm run build
+```
+
+Предпросмотр production-сборки:
+
+```bash
+npm run preview
+```
+
+## Структура проекта
+
+```txt
+src/
+├── assets/              # изображения и статические ресурсы
+├── components/          # React-компоненты
+│   ├── GuessingGame/    # компоненты игровой логики
+│   ├── Header/          # компоненты шапки
+│   └── ui/              # переиспользуемые UI-компоненты
+├── lib/                 # утилиты
+├── redux/               # Redux store, slices, thunks
+├── shared/              # общие хуки и переиспользуемая логика
+├── types/               # TypeScript-типы
+└── App.tsx              # корневой компонент приложения
+```
+
+## Что я реализовал
+
+- настроил React-приложение на Vite;
+- добавил TypeScript;
+- реализовал игровую логику через Redux Toolkit;
+- сделал поиск чемпионов через React Select;
+- реализовал сравнение характеристик выбранного и загаданного чемпиона;
+- добавил модальное окно результата;
+- добавил переключение темы;
+- настроил Tailwind CSS;
+- добавил базовую адаптивность интерфейса.
+
+## Чему я научился
+
+Во время работы над проектом я практиковался в:
+
+- декомпозиции интерфейса на компоненты;
+- работе с глобальным состоянием через Redux Toolkit;
+- типизации props, состояния и данных;
+- написании условного рендера;
+- работе с пользовательскими событиями;
+- организации структуры frontend-проекта;
+- исправлении ошибок сборки и линтинга.
+
+## Что можно улучшить
+
+Планируемые улучшения:
+
+- добавить полноценный адаптив под мобильные устройства;
+- улучшить дизайн карточек и модального окна;
+- добавить анимации для игровых состояний;
+- улучшить доступность интерфейса;
+- добавить тесты для игровой логики;
+- вынести часть логики в отдельные хуки;
+- добавить сохранение темы в localStorage;
+- добавить английскую версию README;
+- задеплоить проект на Vercel или Netlify.
+
+## Статус проекта
+
+Проект находится в разработке. Основная игровая логика реализована, но интерфейс и архитектура ещё дорабатываются.
+
+## Автор
+
+Артур Наумов  
+Frontend Developer в процессе обучения
+
+GitHub: [ArturVictorovich](https://github.com/ArturVictorovich)

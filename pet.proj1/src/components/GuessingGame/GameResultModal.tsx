@@ -4,7 +4,7 @@ import { Button } from '../ui/Button';
 import { cn } from '@/lib/utils/cn';
 import type { IChampion } from '@/type/championsCard.type';
 
-interface IModalProps {
+interface IGameResultModalProps {
   isOpen: boolean;
   onClose: () => void;
   children: ReactNode;
@@ -12,13 +12,13 @@ interface IModalProps {
   targetChampion: IChampion | null;
 }
 
-export const Modal = ({
+export const GameResultModal = ({
   isOpen,
   onClose,
   children,
   isWin,
   targetChampion,
-}: IModalProps) => {
+}: IGameResultModalProps) => {
   if (!isOpen) return null;
 
   return (
