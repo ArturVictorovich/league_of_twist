@@ -1,4 +1,4 @@
-import { CHAMPIONS } from '@/components/GuessingGame/champion.date';
+import { CHAMPIONS } from '@/components/GuessingGame/champion.data';
 import type { IChampion } from '@/type/championsCard.type';
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 type TGameStatus = 'playing' | 'win' | 'lose' | 'idle';

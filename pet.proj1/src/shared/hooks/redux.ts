@@ -3,7 +3,7 @@ import {
   useSelector,
   type TypedUseSelectorHook,
 } from 'react-redux';
-import type { TRootState, TAppDispatch } from '@/redux/store ';
+import type { TRootState, TAppDispatch } from '@/redux/store';
 
 export const useAppDispatch = () => useDispatch<TAppDispatch>();
 

@@ -1,4 +1,4 @@
-import { startGameThunk } from '@/redux/GuessingGame/guessingGame.trunks';
+import { startGameThunk } from '@/redux/GuessingGame/guessingGame.thunks';
 import { Button } from '../ui/Button';
 import { useAppDispatch, useAppSelector } from '@/shared/hooks/redux';
 

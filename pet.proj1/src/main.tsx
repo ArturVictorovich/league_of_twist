@@ -4,7 +4,7 @@ import './index.css';
 import { ThemeProvider } from './Providers/Theme/ThemeProvider.tsx';
 import Home from './screens/Home.tsx';
 import { Provider } from 'react-redux';
-import { store } from './redux/store .ts';
+import { store } from './redux/store.ts';
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

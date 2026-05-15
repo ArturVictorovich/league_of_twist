@@ -1,5 +1,3 @@
-'use client';
-
 import { useMemo, useState } from 'react';
 import type { ISelectOption } from '@/type/itemSearch.type';
 import { createFilter, type InputActionMeta } from 'react-select';
@@ -46,7 +44,7 @@ export const SearchChampion = () => {
     setInputValue('');
     setMenuIsOpen(false);
   };
-  const styleSelect = 'text-xl';
+
   if (gameStatus !== 'playing') return null;
   return (
     <div className="w-3/4 mb-9">

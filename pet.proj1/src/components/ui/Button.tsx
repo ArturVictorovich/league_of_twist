@@ -7,6 +7,7 @@ interface IButtonProps {
   className?: string;
   onClick: () => void;
   disabled?: boolean;
+  type?: 'button' | 'submit' | 'reset';
 }
 export const Button = ({
   children,
