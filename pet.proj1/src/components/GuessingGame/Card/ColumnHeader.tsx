@@ -1,5 +1,5 @@
-import { nameColumnHeader } from './championFeatures';
-import { useAppSelector } from '@/shared/hooks/redux';
+import { nameColumnHeader } from "./championFeatures";
+import { useAppSelector } from "@/shared/hooks/redux";
 export const ColumnHeader = () => {
   const guessedChampionsList = useAppSelector(
     (state) => state.guessingGame.guessedChampionsList,

@@ -1,5 +1,5 @@
-import { Header } from '@/components/Header/Header';
-import { GuessingGame } from '@/components/GuessingGame/GuessingGame';
+import { Header } from "@/components/Header/Header";
+import { GuessingGame } from "@/components/GuessingGame/GuessingGame";
 
 function Home() {
   return (

@@ -1,8 +1,8 @@
-import type { ReactNode } from 'react';
-import { Button } from '../ui/Button';
+import type { ReactNode } from "react";
+import { Button } from "../ui/Button";
 
-import { cn } from '@/lib/utils/cn';
-import type { IChampion } from '@/type/championsCard.type';
+import { cn } from "@/lib/utils/cn";
+import type { IChampion } from "@/type/championsCard.type";
 
 interface IGameResultModalProps {
   isOpen: boolean;
@@ -28,7 +28,7 @@ export const GameResultModal = ({
     >
       <div
         className={cn(
-          `${isWin ? 'bg-green-800' : 'bg-red-800'} flex flex-col items-center gap-2 rounded-xl p-6 shadow-xl
+          `${isWin ? "bg-green-800" : "bg-red-800"} flex flex-col items-center gap-2 rounded-xl p-6 shadow-xl
           md:w-110 md:p-8 md:h-85 md:rounded-3xl md:shadow-3xl`,
         )}
         onClick={(e) => e.stopPropagation()}

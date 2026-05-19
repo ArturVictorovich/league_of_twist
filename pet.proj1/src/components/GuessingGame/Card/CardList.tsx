@@ -1,6 +1,6 @@
-import { useAppSelector } from '@/shared/hooks/redux';
-import { Card } from './Card';
-import { ColumnHeader } from './ColumnHeader';
+import { useAppSelector } from "@/shared/hooks/redux";
+import { Card } from "./Card";
+import { ColumnHeader } from "./ColumnHeader";
 
 export const CardList = () => {
   const guessedChampionsList = useAppSelector(

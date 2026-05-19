@@ -1,10 +1,10 @@
-import { useMemo, useState } from 'react';
-import type { ISelectOption } from '@/components/GuessingGame/SearchChampion/itemSearch.type';
-import { createFilter, type InputActionMeta } from 'react-select';
-import Select, { type SingleValue } from 'react-select';
+import { useMemo, useState } from "react";
+import type { ISelectOption } from "@/components/GuessingGame/SearchChampion/itemSearch.type";
+import { createFilter, type InputActionMeta } from "react-select";
+import Select, { type SingleValue } from "react-select";
 
-import { useAppDispatch, useAppSelector } from '@/shared/hooks/redux';
-import { selectChampion } from '@/redux/GuessingGame/guessingGame.slice';
+import { useAppDispatch, useAppSelector } from "@/shared/hooks/redux";
+import { selectChampion } from "@/redux/GuessingGame/guessingGame.slice";
 
 export const SearchChampion = () => {
   const dispatch = useAppDispatch();
@@ -13,7 +13,7 @@ export const SearchChampion = () => {
     (state) => state.guessingGame.availableChampionsList,
   );
 
-  const [inputValue, setInputValue] = useState('');
+  const [inputValue, setInputValue] = useState("");
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [selectValue, setSelectValue] = useState<ISelectOption | null>(null);
 
@@ -27,7 +27,7 @@ export const SearchChampion = () => {
   );
 
   const handleInputChange = (value: string, meta: InputActionMeta) => {
-    if (meta.action === 'input-change') {
+    if (meta.action === "input-change") {
       setInputValue(value);
       setMenuIsOpen(value.length > 0);
     }
@@ -35,7 +35,7 @@ export const SearchChampion = () => {
   };
   const resetSelectState = () => {
     setSelectValue(null);
-    setInputValue('');
+    setInputValue("");
     setMenuIsOpen(false);
   };
   const handleChange = (option: SingleValue<ISelectOption>) => {
@@ -46,7 +46,7 @@ export const SearchChampion = () => {
     resetSelectState();
   };
 
-  if (gameStatus !== 'playing') return null;
+  if (gameStatus !== "playing") return null;
   return (
     <div className="w-3/4 mb-9">
       <Select
@@ -64,10 +64,10 @@ export const SearchChampion = () => {
         onChange={handleChange}
         placeholder="Начни вводить имя..."
         isClearable
-        noOptionsMessage={() => 'Ничего не найдено'}
+        noOptionsMessage={() => "Ничего не найдено"}
         filterOption={createFilter({
           ignoreCase: true,
-          matchFrom: 'start',
+          matchFrom: "start",
         })}
       />
     </div>

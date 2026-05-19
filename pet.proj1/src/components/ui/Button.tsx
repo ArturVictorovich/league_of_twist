@@ -1,5 +1,5 @@
-import { cn } from '@/lib/utils/cn';
-import type { ReactNode } from 'react';
+import { cn } from "@/lib/utils/cn";
+import type { ReactNode } from "react";
 
 interface IButtonProps {
   isOpen?: boolean;
@@ -7,7 +7,7 @@ interface IButtonProps {
   className?: string;
   onClick: () => void;
   title: string;
-  type: 'button' | 'submit' | 'reset';
+  type: "button" | "submit" | "reset";
 }
 export const Button = ({
   children,
@@ -20,7 +20,7 @@ export const Button = ({
     <button
       onClick={onClick}
       className={cn(
-        'bg-primary p-1 w-41 rounded-sm text-text-primary border border-border  shadow-sm  hover:bg-hover  hover:scale-110',
+        "bg-primary p-1 w-41 rounded-sm text-text-primary border border-border  shadow-sm  hover:bg-hover  hover:scale-110",
         className,
       )}
     >
