@@ -1,6 +1,6 @@
-import { startGameThunk } from "@/redux/GuessingGame/guessingGame.thunks";
-import { Button } from "../ui/Button";
-import { useAppDispatch, useAppSelector } from "@/shared/hooks/redux";
+import { startGameThunk } from '@/redux/GuessingGame/guessingGame.thunks';
+import { Button } from '../ui/Button';
+import { useAppDispatch, useAppSelector } from '@/shared/hooks/redux';
 
 export const StartGame = () => {
   const gameStatus = useAppSelector((state) => state.guessingGame.gameStatus);
@@ -8,13 +8,13 @@ export const StartGame = () => {
   const handleStartGame = () => {
     dispatch(startGameThunk());
   };
-  if (gameStatus !== "idle") return null;
+  if (gameStatus !== 'idle') return null;
   return (
     <Button
       title="Начать игру"
       type="button"
       onClick={handleStartGame}
-      className="p-3 text-2xl rounded-2xl"
+      className="absolute top-1/2 left-1/2 transform -translate-x-1/2  bg-(image:--gradient-button) -translate-y-1/2 text-lg font-bold"
     >
       Начать игру
     </Button>

@@ -1,11 +1,13 @@
-import { GameResultModal } from "@/components/GuessingGame/GameResultModal";
+import { GameResultModal } from '@/components/GuessingGame/GameResultModal';
 
-import { CardList } from "./Card/CardList";
-import { SearchChampion } from "./SearchChampion/SearchChampion";
-import { StartGame } from "./StartGame";
-import { useAppDispatch, useAppSelector } from "@/shared/hooks/redux";
-import { ffGame, restartGame } from "@/redux/GuessingGame/guessingGame.slice";
-import { Button } from "@/components/ui/Button";
+import { CardList } from './Card/CardList';
+import { SearchChampion } from './SearchChampion/SearchChampion';
+import { StartGame } from './StartGame';
+import { useAppDispatch, useAppSelector } from '@/shared/hooks/redux';
+import { ffGame, restartGame } from '@/redux/GuessingGame/guessingGame.slice';
+import { Button } from '@/components/ui/Button';
+
+import { AttemptsContainer } from './ContainerAttempts/AttemptsContainer';
 export const GuessingGame = () => {
   const dispatch = useAppDispatch();
   const handleRestartGame = () => {
@@ -21,24 +23,26 @@ export const GuessingGame = () => {
     (state) => state.guessingGame.guessedChampionsList,
   );
   const gameStatus = useAppSelector((state) => state.guessingGame.gameStatus);
-  const isGameFinished = gameStatus === "win" || gameStatus === "lose";
-  const isWin = gameStatus === "win";
+  const isGameFinished = gameStatus === 'win' || gameStatus === 'lose';
+  const isWin = gameStatus === 'win';
 
   return (
-    <div className="gGame relative flex flex-col p-1 items-center  bg-bg min-h-screen w-full ">
+    <div className="gGame relative flex flex-col  items-center  bg-bg min-h-screen w-full ">
       <StartGame />
-      <SearchChampion />
 
-      <Button
-        type="button"
-        isOpen={guessedChampionsList.length > 3 && gameStatus === "playing"}
-        className="w-12 font-bold absolute left-1/2 -translate-x-1/2 top-13  animate-[card-drop_0.45s_ease-out_forwards]
-        md:w-16 md:rounded-md md:text-lg"
-        onClick={handleFF}
-        title="Сдаться"
-      >
-        ff
-      </Button>
+      <SearchChampion />
+      <div className="flex w-full max-w-2xl items-center justify-between gap-4 mb-2">
+        <AttemptsContainer />
+        <Button
+          type="button"
+          isOpen={guessedChampionsList.length > 3 && gameStatus === 'playing'}
+          className="h-12 w-26.5 text-lg font-bold border border-btn-ff-border bg-btn-ff-bg text-btn-ff-text"
+          onClick={handleFF}
+          title="Сдаться"
+        >
+          FF
+        </Button>
+      </div>
 
       <CardList />
 
@@ -48,7 +52,7 @@ export const GuessingGame = () => {
         onClose={handleRestartGame}
         isOpen={isGameFinished}
       >
-        {isWin ? "Победа!" : "Поражение!"}
+        {isWin ? 'Победа!' : 'Поражение!'}
       </GameResultModal>
     </div>
   );

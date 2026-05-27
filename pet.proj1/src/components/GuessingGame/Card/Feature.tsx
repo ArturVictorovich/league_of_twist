@@ -1,5 +1,5 @@
-import type { ReactNode } from "react";
-import { cn } from "@/lib/utils/cn";
+import type { ReactNode } from 'react';
+import { cn } from '@/lib/utils/cn';
 
 interface Props {
   children: ReactNode;
@@ -7,13 +7,14 @@ interface Props {
   className?: string;
 }
 
-export const Feature = ({ children, className }: Props) => {
+export const Feature = ({ children, className, ...props }: Props) => {
   return (
     <div
       className={cn(
-        "border gap-1 shrink-0 p-1 font-semibold rounded-xs text-sm border-border flex-col wrap-break-word whitespace-normal flex items-center justify-center h-17 w-17 bg-secondary md:w-20 md:h-20 md:text-base",
+        'feature border gap-1 p-1  rounded-xl text-text-primary text-xs font-semibold border-border flex-col wrap-break-word whitespace-normal flex items-center justify-center h-7 w-23.5  ',
         className,
       )}
+      {...props}
     >
       {children}
     </div>

@@ -1,26 +1,29 @@
-import { cn } from "@/lib/utils/cn";
-import type { ReactNode } from "react";
+import { cn } from '@/lib/utils/cn';
+import type { ButtonHTMLAttributes, ReactNode } from 'react';
 
-interface IButtonProps {
+interface IButtonProps extends Omit<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  'children'
+> {
   isOpen?: boolean;
   children: ReactNode;
   className?: string;
-  onClick: () => void;
-  title: string;
-  type: "button" | "submit" | "reset";
 }
+
 export const Button = ({
   children,
   className,
-  onClick,
   isOpen,
+  type = 'button',
+  ...props
 }: IButtonProps) => {
   if (isOpen === false) return null;
   return (
     <button
-      onClick={onClick}
+      type={type}
+      {...props}
       className={cn(
-        "bg-primary p-1 w-41 rounded-sm text-text-primary border border-border  shadow-sm  hover:bg-hover  hover:scale-110",
+        ' p-1 w-70.5 h-14 bg-blue rounded-3xl text-text-button border border-border shadow-sm hover:bg-hover hover:scale-110',
         className,
       )}
     >

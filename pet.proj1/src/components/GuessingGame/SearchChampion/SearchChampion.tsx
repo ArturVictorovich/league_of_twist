@@ -1,10 +1,15 @@
-import { useMemo, useState } from "react";
-import type { ISelectOption } from "@/components/GuessingGame/SearchChampion/itemSearch.type";
-import { createFilter, type InputActionMeta } from "react-select";
-import Select, { type SingleValue } from "react-select";
+import { useMemo, useState } from 'react';
+import type { ISelectOption } from '@/components/GuessingGame/SearchChampion/itemSearch.type';
+import Select, { type InputActionMeta, type SingleValue } from 'react-select';
 
-import { useAppDispatch, useAppSelector } from "@/shared/hooks/redux";
-import { selectChampion } from "@/redux/GuessingGame/guessingGame.slice";
+import {
+  convertEnglishToRussianLayout,
+  normalizeSearchValue,
+  startsWithSearchValue,
+} from '@/lib/utils/keyboardLayout';
+import { useAppDispatch, useAppSelector } from '@/shared/hooks/redux';
+import { selectChampion } from '@/redux/GuessingGame/guessingGame.slice';
+import { cn } from '@/lib/utils/cn';
 
 export const SearchChampion = () => {
   const dispatch = useAppDispatch();
@@ -13,7 +18,7 @@ export const SearchChampion = () => {
     (state) => state.guessingGame.availableChampionsList,
   );
 
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState('');
   const [menuIsOpen, setMenuIsOpen] = useState(false);
   const [selectValue, setSelectValue] = useState<ISelectOption | null>(null);
 
@@ -25,9 +30,21 @@ export const SearchChampion = () => {
       })),
     [availableChampionsList],
   );
+  const filterChampionOption = (
+    option: { data: ISelectOption },
+    inputValue: string,
+  ): boolean => {
+    const normalizedInput = normalizeSearchValue(inputValue);
+    const convertedInput = convertEnglishToRussianLayout(normalizedInput);
+    const normalizedLabel = normalizeSearchValue(option.data.label);
 
+    return (
+      startsWithSearchValue(normalizedLabel, normalizedInput) ||
+      startsWithSearchValue(normalizedLabel, convertedInput)
+    );
+  };
   const handleInputChange = (value: string, meta: InputActionMeta) => {
-    if (meta.action === "input-change") {
+    if (meta.action === 'input-change') {
       setInputValue(value);
       setMenuIsOpen(value.length > 0);
     }
@@ -35,7 +52,7 @@ export const SearchChampion = () => {
   };
   const resetSelectState = () => {
     setSelectValue(null);
-    setInputValue("");
+    setInputValue('');
     setMenuIsOpen(false);
   };
   const handleChange = (option: SingleValue<ISelectOption>) => {
@@ -46,12 +63,38 @@ export const SearchChampion = () => {
     resetSelectState();
   };
 
-  if (gameStatus !== "playing") return null;
+  if (gameStatus !== 'playing') return null;
   return (
-    <div className="w-3/4 mb-9">
+    <div className="w-full mb-2">
+      <div className="text-text-primary mb-1">Поиск чемпиона</div>
       <Select
+        classNames={{
+          control: ({ isFocused, isDisabled }) =>
+            cn(
+              'min-h-11 rounded-xl border border-select-control-border bg-select-control-bg px-3 transition-colors',
+              isFocused && 'border-select-control-border-focused',
+              isDisabled && 'cursor-not-allowed  ',
+            ),
+          placeholder: () => 'text-sm text-select-placeholder',
+          valueContainer: () => 'text-select-text gap-2 p-0',
+          indicatorsContainer: () => 'text-text-muted gap-1',
+          indicatorSeparator: () => 'hidden',
+          menu: () =>
+            'z-50 mt-1 rounded-xl border border-select-menu-border bg-select-menu-bg shadow-lg  ',
+          menuList: () => 'p-1 text-select-option-text max-h-60 overflow-auto',
+          option: ({ isFocused, isSelected }) =>
+            cn(
+              'cursor-pointer rounded-lg text-select-option-text px-2 py-1',
+              isFocused &&
+                'bg-select-option-bg-focused border border-select-menu-border  text-select-option-text-focused ',
+              isSelected &&
+                'bg-select-option-bg-selected text-select-option-text-selected ',
+              !isSelected && !isFocused && 'text-select-option-text',
+            ),
+        }}
         value={selectValue}
         options={options}
+        unstyled
         inputValue={inputValue}
         onInputChange={handleInputChange}
         menuIsOpen={menuIsOpen}
@@ -64,11 +107,8 @@ export const SearchChampion = () => {
         onChange={handleChange}
         placeholder="Начни вводить имя..."
         isClearable
-        noOptionsMessage={() => "Ничего не найдено"}
-        filterOption={createFilter({
-          ignoreCase: true,
-          matchFrom: "start",
-        })}
+        noOptionsMessage={() => 'Ничего не найдено'}
+        filterOption={filterChampionOption}
       />
     </div>
   );

@@ -1,67 +1,108 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 /* Настраиваем переключение тёмной темы по классу .dark */
 @custom-variant dark (&:where(.dark, .dark *));
 
 :root {
-  /* Фон - чистый светлый */
-  --color-bg: #c3cbe8;
-
-  /* Поверхности - очень светлый серо-голубой */
-  --color-surface: #f8fafc;
-
-  /* Основной цвет (Primary) - тот же яркий синий (узнаваемость бренда) */
-  --color-primary: #2563eb;
-  /* hover */
-  --color-hover: #194096;
-  /* Второстепенный - более насыщенный бирюзовый для контраста */
-  --color-secondary: #0891b2;
-
-  /* Текст - темно-синий (как фон из темной темы) */
-  --color-text-primary: #0b1120;
-
-  /* Текст второстепенный */
-  --color-text-secondary: #031733;
-
-  /* Границы */
-  --color-border: #434826;
+  --gradient-button: linear-gradient(
+    90deg,
+    #0891b2 0%,
+    #22d3ee 55%,
+    #67e8f9 100%
+  );
 }
 
 .dark {
-  /* Фон (Background) - глубокий синий */
-  --color-bg: #131e3a;
+  --app-bg: #050816;
+  --card-bg: #1e293b;
+  --card-bg-secondary: #1e293b;
+  --border-card: #334155;
 
-  /* Поверхности (Cards, Modals) - чуть светлее фона */
-  --color-surface: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
 
-  /* Основной цвет (Primary) - яркий электрический синий для кнопок/ссылок */
-  --color-primary: #3b82f6;
-  /* hover */
-  --color-hover: #2958a3;
+  --color-cyan: #22d3ee;
+  --color-cyan-light: #67e8f9;
+  --color-cyan-dark: #0891b2;
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-danger: #fb7185;
 
-  /* Второстепенный (Secondary) - бирюзовый/голубой оттенок */
-  --color-secondary: #06b6d4;
+  --btn-ff-bg: rgba(244, 63, 94, 0.12);
+  --btn-ff-border: rgba(251, 113, 133, 0.4);
+  --btn-ff-text: #f8fafc;
 
-  /* Текст (Text) - основной */
-  --color-text-primary: #f1f5f9;
+  /* Select control / input */
+  --select-control-bg: #050816;
+  --select-control-border: #334155;
+  --select-control-border-focused: #67e8f9;
+  --select-control-shadow-focused: #22d3ee66;
 
-  /* Текст (Text) - второстепенный (подписи, метки) */
-  --color-text-secondary: #9da6b1;
+  /* Input text */
+  --select-text: #f8fafc;
+  --select-placeholder: #94a3b8;
 
-  /* Границы (Borders) */
-  --color-border: #6b5227;
+  /* Dropdown menu — НЕ прозрачный */
+  --select-menu-bg: #111827;
+  --select-menu-border: #334155;
+
+  /* Option */
+  --select-option-text: #f8fafc;
+  --select-option-bg: #111827;
+
+  /* Hover / focused option */
+  --select-option-bg-focused: #1e293b;
+  --select-option-text-focused: #f8fafc;
+  --select-option-border-focused: #67e8f9;
+
+  /* Selected option */
+  --select-option-bg-selected: #164e63;
+  --select-option-text-selected: #f8fafc;
+
+  /* Icons */
+  --select-icon: #94a3b8;
+  --select-icon-focused: #67e8f9;
 }
 
 @theme inline {
-  --color-bg: var(--color-bg);
-  --color-surface: var(--color-surface);
-  --color-primary: var(--color-primary);
-  --color-secondary: var(--color-secondary);
-  --color-text-primary: var(--color-text-primary);
-  --color-text-secondary: var(--color-text-secondary);
-  --color-border: var(--color-border);
-  --color-hover: var(--color-hover);
+  --color-app-bg: var(--app-bg);
+  --color-card-bg: var(--card-bg);
+  --color-card-bg-secondary: var(--card-bg-secondary);
+  --color-border-card: var(--border-card);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-cyan: var(--color-cyan);
+  --color-cyan-light: var(--color-cyan-light);
+  --color-cyan-dark: var(--color-cyan-dark);
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-danger: var(--color-danger);
+  --color-btn-ff-bg: var(--btn-ff-bg);
+  --color-btn-ff-border: var(--btn-ff-border);
+  --color-btn-ff-text: var(--btn-ff-text);
+
+  /* Select control / input */
+  --color-select-control-bg: var(--select-control-bg);
+  --color-select-control-border: var(--select-control-border);
+  --color-select-control-border-focused: var(--select-control-border-focused);
+  --color-select-control-shadow-focused: var(--select-control-shadow-focused);
+  --color-select-text: var(--select-text);
+  --color-select-placeholder: var(--select-placeholder);
+  --color-select-menu-bg: var(--select-menu-bg);
+  --color-select-menu-border: var(--select-menu-border);
+  --color-select-option-text: var(--select-option-text);
+  --color-select-option-bg: var(--select-option-bg);
+  --color-select-option-bg-focused: var(--select-option-bg-focused);
+  --color-select-option-text-focused: var(--select-option-text-focused);
+  --color-select-option-border-focused: var(--select-option-border-focused);
+  --color-select-option-bg-selected: var(--select-option-bg-selected);
+  --color-select-option-text-selected: var(--select-option-text-selected);
+  --color-select-icon: var(--select-icon);
+  --color-select-icon-focused: var(--select-icon-focused);
 }
+
 html,
 body {
   margin: 0;
@@ -71,13 +112,16 @@ button {
   cursor: pointer;
 }
 .green {
-  background: green;
+  background: #0f6143;
+  border: 1px solid #50d5a4;
 }
 .yellow {
-  background: yellow;
+  background: #cd9b1b;
+  border: 1px solid #fcd34d;
 }
 .red {
-  background: red;
+  background: #953745;
+  border: 1px solid #fca5a5;
 }
 /* анимация появления карточки  */
 @keyframes card-drop {
