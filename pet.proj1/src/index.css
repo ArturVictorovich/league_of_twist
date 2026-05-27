@@ -33,36 +33,33 @@
   --btn-ff-border: rgba(251, 113, 133, 0.4);
   --btn-ff-text: #f8fafc;
 
-  /* Select control / input */
   --select-control-bg: #050816;
   --select-control-border: #334155;
   --select-control-border-focused: #67e8f9;
   --select-control-shadow-focused: #22d3ee66;
 
-  /* Input text */
   --select-text: #f8fafc;
   --select-placeholder: #94a3b8;
 
-  /* Dropdown menu — НЕ прозрачный */
   --select-menu-bg: #111827;
   --select-menu-border: #334155;
 
-  /* Option */
   --select-option-text: #f8fafc;
   --select-option-bg: #111827;
 
-  /* Hover / focused option */
   --select-option-bg-focused: #1e293b;
   --select-option-text-focused: #f8fafc;
   --select-option-border-focused: #67e8f9;
 
-  /* Selected option */
   --select-option-bg-selected: #164e63;
   --select-option-text-selected: #f8fafc;
 
-  /* Icons */
   --select-icon: #94a3b8;
   --select-icon-focused: #67e8f9;
+
+  --success-green: #089662;
+  --warning-yellow: #cd9b1b;
+  --danger-red: #ce344b;
 }
 
 @theme inline {
@@ -83,7 +80,6 @@
   --color-btn-ff-border: var(--btn-ff-border);
   --color-btn-ff-text: var(--btn-ff-text);
 
-  /* Select control / input */
   --color-select-control-bg: var(--select-control-bg);
   --color-select-control-border: var(--select-control-border);
   --color-select-control-border-focused: var(--select-control-border-focused);
@@ -101,6 +97,10 @@
   --color-select-option-text-selected: var(--select-option-text-selected);
   --color-select-icon: var(--select-icon);
   --color-select-icon-focused: var(--select-icon-focused);
+
+  --color-success-green: var(--success-green);
+  --color-warning-yellow: var(--warning-yellow);
+  --color-danger-red: var(--danger-red);
 }
 
 html,
