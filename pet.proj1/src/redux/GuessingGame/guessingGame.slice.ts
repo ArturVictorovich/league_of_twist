@@ -1,4 +1,5 @@
 import { CHAMPIONS } from '@/components/GuessingGame/champion.data';
+import { MAX_ATTEMPTS } from '@/constants';
 import type { IChampion } from '@/type/championsCard.type';
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 export type TGameStatus = 'playing' | 'win' | 'lose' | 'idle';
@@ -23,12 +24,14 @@ export const guessingGameSlice = createSlice({
   reducers: {
     targetChampion: (state, action: PayloadAction<number>) => {
       state.targetChampion = CHAMPIONS[action.payload];
+      state.availableChampionsList = CHAMPIONS;
+      state.guessedChampionsList = [];
       state.gameStatus = 'playing';
     },
     ffGame: (state) => {
       state.gameStatus = 'lose';
     },
-    restartGame: (state) => {
+    closeGame: (state) => {
       state.targetChampion = null;
       state.availableChampionsList = CHAMPIONS;
       state.guessedChampionsList = [];
@@ -47,11 +50,17 @@ export const guessingGameSlice = createSlice({
       if (state.targetChampion.id === action.payload) {
         state.gameStatus = 'win';
       }
+      if (
+        state.guessedChampionsList.length >= MAX_ATTEMPTS &&
+        state.gameStatus !== 'win'
+      ) {
+        state.gameStatus = 'lose';
+      }
     },
   },
 });
 
-export const { targetChampion, selectChampion, restartGame, ffGame } =
+export const { targetChampion, selectChampion, closeGame, ffGame } =
   guessingGameSlice.actions;
 
 export default guessingGameSlice.reducer;

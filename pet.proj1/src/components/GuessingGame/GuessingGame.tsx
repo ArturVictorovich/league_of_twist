@@ -4,15 +4,19 @@ import { CardList } from './Card/CardList';
 import { SearchChampion } from './SearchChampion/SearchChampion';
 import { StartGame } from './StartGame';
 import { useAppDispatch, useAppSelector } from '@/shared/hooks/redux';
-import { ffGame, restartGame } from '@/redux/GuessingGame/guessingGame.slice';
+import { closeGame, ffGame } from '@/redux/GuessingGame/guessingGame.slice';
 import { Button } from '@/components/ui/Button';
 
 import { AttemptsContainer } from './ContainerAttempts/AttemptsContainer';
 import { cn } from '@/lib/utils/cn';
+import { startGameThunk } from '@/redux/GuessingGame/guessingGame.thunks';
 export const GuessingGame = () => {
   const dispatch = useAppDispatch();
+  const handleCloseGame = () => {
+    dispatch(closeGame());
+  };
   const handleRestartGame = () => {
-    dispatch(restartGame());
+    dispatch(startGameThunk());
   };
   const handleFF = () => {
     if (!isFFEnabled) return;
@@ -67,7 +71,8 @@ export const GuessingGame = () => {
       <GameResultModal
         targetChampion={targetChampion}
         isWin={isWin}
-        onClose={handleRestartGame}
+        onClose={handleCloseGame}
+        onRestart={handleRestartGame}
         isOpen={isGameFinished}
       >
         {isWin ? 'Победа!' : 'Поражение!'}
