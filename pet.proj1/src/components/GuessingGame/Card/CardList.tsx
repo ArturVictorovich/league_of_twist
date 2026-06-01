@@ -1,14 +1,15 @@
-import { useAppSelector } from '@/shared/hooks/redux';
 import { Card } from './Card';
 import { ColumnHeader } from './ColumnHeader';
+import type { IChampion } from '@/type/championsCard.type';
 
-export const CardList = () => {
-  const guessedChampionsList = useAppSelector(
-    (state) => state.guessingGame.guessedChampionsList,
-  );
+export const CardList = ({
+  guessedChampionsList,
+}: {
+  guessedChampionsList: IChampion[];
+}) => {
   if (guessedChampionsList.length === 0) return null;
   return (
-    <div className="scrollbar-custom  w-full ">
+    <div className="scrollbar-custom overflow-y-auto w-full ">
       {/* <ColumnHeader /> */}
       <div
         className=" gap-2 flex flex-col-reverse max-w-full 

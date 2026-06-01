@@ -66,7 +66,7 @@ export const GuessingGame = () => {
         )}
       </div>
 
-      <CardList />
+      <CardList guessedChampionsList={guessedChampionsList} />
 
       <GameResultModal
         targetChampion={targetChampion}

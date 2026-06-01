@@ -167,11 +167,11 @@ button {
 }
 @layer base {
   ::-webkit-scrollbar {
-    width: 10px;
+    width: 5px;
   }
 
   .scrollbar-custom::-webkit-scrollbar {
-    /* width: 4px; */
+    width: 3px;
     height: 6px;
   }
 
