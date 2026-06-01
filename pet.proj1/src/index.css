@@ -22,6 +22,57 @@
     #b1bcbd 50%,
     #08754d 70%
   );
+  --app-bg: #dbeafe;
+  --card-bg: #f8fafc;
+  --card-bg-secondary: #e0f2fe;
+  --border-card: #94a3b8;
+
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+
+  --color-cyan: #0891b2;
+  --color-cyan-light: #06b6d4;
+  --color-cyan-dark: #0e7490;
+  --color-success: #059669;
+  --color-warning: #d97706;
+  --color-danger: #e11d48;
+
+  --btn-ff-bg: #ffe4e6;
+  --btn-ff-border: #fb7185;
+  --btn-ff-text: #881337;
+
+  --select-control-bg: #f8fafc;
+  --select-control-border: #94a3b8;
+  --select-control-border-focused: #0891b2;
+  --select-control-shadow-focused: #22d3ee66;
+
+  --select-text: #0f172a;
+  --select-placeholder: #64748b;
+
+  --select-menu-bg: #f8fafc;
+  --select-menu-border: #94a3b8;
+
+  --select-option-text: #0f172a;
+  --select-option-bg: #f8fafc;
+
+  --select-option-bg-focused: #e0f2fe;
+  --select-option-text-focused: #0f172a;
+  --select-option-border-focused: #0891b2;
+
+  --select-option-bg-selected: #bae6fd;
+  --select-option-text-selected: #0c4a6e;
+
+  --select-icon: #64748b;
+  --select-icon-focused: #0891b2;
+
+  --btn-disabled-bg: #e2e8f0;
+  --btn-disabled-border: #cbd5e1;
+  --btn-disabled-text: #64748b;
+
+  --success-green: #10b981;
+  --warning-yellow: #f59e0b;
+  --danger-red: #f43f5e;
 }
 
 .dark {
@@ -69,6 +120,10 @@
   --select-icon: #94a3b8;
   --select-icon-focused: #67e8f9;
 
+  --btn-disabled-bg: #1e293b;
+  --btn-disabled-border: #334155;
+  --btn-disabled-text: #94a3b8;
+
   --success-green: #08754d;
   --warning-yellow: #cd9b1b;
   --danger-red: #c31e36;
@@ -109,6 +164,9 @@
   --color-select-option-text-selected: var(--select-option-text-selected);
   --color-select-icon: var(--select-icon);
   --color-select-icon-focused: var(--select-icon-focused);
+  --color-btn-disabled-bg: var(--btn-disabled-bg);
+  --color-btn-disabled-border: var(--btn-disabled-border);
+  --color-btn-disabled-text: var(--btn-disabled-text);
 
   --color-success-green: var(--success-green);
   --color-warning-yellow: var(--warning-yellow);
@@ -186,5 +244,12 @@ button {
 
   ::-webkit-scrollbar-thumb:hover {
     background: #475569;
+  }
+  .scrollbar-hidden {
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
   }
 }

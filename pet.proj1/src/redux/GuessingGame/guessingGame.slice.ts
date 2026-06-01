@@ -46,7 +46,7 @@ export const guessingGameSlice = createSlice({
       const champion = state.availableChampionsList[index];
 
       state.availableChampionsList.splice(index, 1);
-      state.guessedChampionsList.push(champion);
+      state.guessedChampionsList.unshift(champion);
       if (state.targetChampion.id === action.payload) {
         state.gameStatus = 'win';
       }

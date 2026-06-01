@@ -26,7 +26,7 @@ export const Button = ({
         'h-14 w-70.5 rounded-3xl border border-border bg-blue p-1 text-text-button shadow-sm transition',
         'enabled:hover:scale-110 enabled:hover:bg-hover',
         'disabled:cursor-not-allowed',
-        'disabled:border-[#334155] disabled:bg-[#1E293B] disabled:text-[#94A3B8]',
+        'disabled:border-btn-disabled-border disabled:bg-btn-disabled-bg disabled:text-btn-disabled-text',
         className,
       )}
       {...props}

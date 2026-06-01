@@ -21,7 +21,7 @@ export const Card = ({ champion }: Props) => {
   }
   return (
     <div className="  card bg-card-bg rounded-3xl border border-border-card w-full h-35.5 p-2  animate-[card-drop_0.70s_ease-out_forwards] flex justify-center  items-center">
-      <div className="mr-2">
+      <div className=" flex justify-center flex-col items-center mr-2">
         <div className="h-16 w-16 ">
           <img
             className="rounded-md"
@@ -29,7 +29,9 @@ export const Card = ({ champion }: Props) => {
             alt={champion.name}
           />
         </div>
-        <div className="text-text-primary text-center">{champion.name}</div>
+        <div className="text-text-primary font-medium text-center">
+          {champion.name}
+        </div>
       </div>
 
       <div className="w-2/3 grid grid-cols-2 gap-1">
@@ -57,15 +59,15 @@ export const Card = ({ champion }: Props) => {
                   </div>
                 ) : (
                   currentFeature.map((f) => (
-                    <span
+                    <div
                       key={f}
                       className={cn(
                         'flex flex-col ',
-                        currentFeature.length > 1 && 'text-[9px]',
+                        currentFeature.length > 1 && 'text-[10px]',
                       )}
                     >
                       {f}
-                    </span>
+                    </div>
                   ))
                 )}
               </Feature>

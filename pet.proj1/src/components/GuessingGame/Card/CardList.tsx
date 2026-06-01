@@ -9,10 +9,10 @@ export const CardList = ({
 }) => {
   if (guessedChampionsList.length === 0) return null;
   return (
-    <div className="scrollbar-custom overflow-y-auto w-full ">
+    <div className=" pb-4 flex-1 min-h-0 overflow-y-auto w-full ">
       {/* <ColumnHeader /> */}
       <div
-        className=" gap-2 flex flex-col-reverse max-w-full 
+        className=" gap-2 flex flex-col max-w-full 
       "
       >
         {guessedChampionsList.map((champion) => (

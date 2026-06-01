@@ -30,7 +30,7 @@ export const GameResultModal = ({
     >
       <div
         className={cn(
-          'flex rounded-xl justify-center items-center w-74 h-90',
+          'flex rounded-xl justify-center items-center w-74 h-92',
           isWin
             ? 'bg-(image:--gradient-modal-success)'
             : 'bg-(image:--gradient-modal-danger)',
@@ -38,7 +38,7 @@ export const GameResultModal = ({
       >
         <div
           className={cn(
-            `w-73 h-89  bg-card-bg  flex flex-col items-center gap-2 rounded-xl p-6 shadow-xl
+            `w-73 h-91  bg-card-bg  flex flex-col items-center gap-2 rounded-xl p-6 shadow-xl
           `,
           )}
           onClick={(e) => e.stopPropagation()}
@@ -70,7 +70,7 @@ export const GameResultModal = ({
             <div className="text-text-primary text-2xl font-bold mb-3">
               {targetChampion?.name}
             </div>
-            <div className="flex flex-col gap-1 items-center justify-center">
+            <div className="flex flex-col gap-2 items-center justify-center">
               <Button
                 title="Начать снова"
                 type="button"
@@ -82,7 +82,7 @@ export const GameResultModal = ({
               <Button
                 title="Закрыть"
                 type="button"
-                className="w-42 h-11 border-0 rounded-xl text-text-muted  text-lg "
+                className="w-42 h-11 shadow-none hover:border border-0 rounded-xl text-text-muted  text-lg "
                 onClick={onClose}
               >
                 Закрыть

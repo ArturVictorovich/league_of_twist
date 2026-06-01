@@ -37,7 +37,7 @@ export const GuessingGame = () => {
   const isFFEnabled =
     gameStatus === 'playing' && guessedChampionsList.length > 3;
   return (
-    <div className="gGame relative flex flex-col  items-center  bg-bg min-h-screen w-full ">
+    <div className="gGame relative flex-1 flex-col  items-center  bg-bg min-h-0 w-full ">
       <StartGame />
 
       <SearchChampion />
@@ -56,9 +56,8 @@ export const GuessingGame = () => {
             className={cn(
               'h-12 w-26.5 border text-lg font-bold',
 
-              isFFEnabled
-                ? 'border-btn-ff-border bg-btn-ff-bg text-btn-ff-text'
-                : 'border-[#334155] bg-[#1E293B] text-[#94A3B8]',
+              isFFEnabled &&
+                'border-btn-ff-border bg-btn-ff-bg text-btn-ff-text',
             )}
           >
             FF
