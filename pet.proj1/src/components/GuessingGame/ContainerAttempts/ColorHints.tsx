@@ -1,6 +1,6 @@
 export const ColorHints = () => {
   return (
-    <div className="text-[9px]">
+    <div className="text-[9px] min-[390px]:text-[11px]">
       <div className="flex flex-row items-center gap-2">
         <span className="block w-2 h-2 bg-success-green rounded-full"></span>
         <p className="text-success-green">Совпадение</p>

@@ -37,11 +37,11 @@ export const GuessingGame = () => {
   const isFFEnabled =
     gameStatus === 'playing' && guessedChampionsList.length > 3;
   return (
-    <div className="gGame relative flex-1 flex-col  items-center  bg-bg min-h-0 w-full ">
+    <div className="gGame relative flex-1 flex-col   items-center  bg-bg min-h-0 w-full ">
       <StartGame />
 
       <SearchChampion />
-      <div className="flex w-full max-w-2xl items-center justify-between gap-4 mb-2">
+      <div className="flex w-full max-w-2xl items-center justify-between gap-3 mb-2">
         <AttemptsContainer
           gameStatus={gameStatus}
           attempts={guessedChampionsList.length}
@@ -54,7 +54,7 @@ export const GuessingGame = () => {
             onClick={handleFF}
             title="Сдаться"
             className={cn(
-              'h-12 w-26.5 border text-lg font-bold',
+              'h-12 w-26.5 min-[390px]:h-15 min-[390px]:w-27  border min-[390px]:text-2xl text-lg font-bold',
 
               isFFEnabled &&
                 'border-btn-ff-border bg-btn-ff-bg text-btn-ff-text',

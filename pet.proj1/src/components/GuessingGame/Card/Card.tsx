@@ -20,16 +20,16 @@ export const Card = ({ champion }: Props) => {
     return null;
   }
   return (
-    <div className="  card bg-card-bg rounded-3xl border border-border-card w-full h-35.5 p-2  animate-[card-drop_0.70s_ease-out_forwards] flex justify-center  items-center">
+    <div className=" min-[390px]:h-45 card bg-card-bg rounded-3xl border border-border-card w-full h-35.5 p-2  animate-[card-drop_0.70s_ease-out_forwards] flex justify-center  items-center">
       <div className=" flex justify-center flex-col items-center mr-2">
-        <div className="h-16 w-16 ">
+        <div className="h-16 w-16 min-[390px]:h-20 min-[390px]:w-20 rounded-md mb-1">
           <img
             className="rounded-md"
             src={champion.image}
             alt={champion.name}
           />
         </div>
-        <div className="text-text-primary font-medium text-center">
+        <div className="text-text-primary min-[390px]:text-lg font-medium text-center">
           {champion.name}
         </div>
       </div>
@@ -63,7 +63,8 @@ export const Card = ({ champion }: Props) => {
                       key={f}
                       className={cn(
                         'flex flex-col ',
-                        currentFeature.length > 1 && 'text-[10px]',
+                        currentFeature.length > 1 &&
+                          'text-[10px] min-[390px]:text-xs',
                       )}
                     >
                       {f}
