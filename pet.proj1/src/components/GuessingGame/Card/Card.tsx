@@ -20,7 +20,7 @@ export const Card = ({ champion }: Props) => {
     return null;
   }
   return (
-    <div className=" min-[390px]:h-45 card bg-card-bg rounded-3xl border border-border-card w-full h-35.5 p-2  animate-[card-drop_0.70s_ease-out_forwards] flex justify-center  items-center">
+    <div className=" min-[390px]:h-45 card bg-card-bg md:bg-card-bg-secondary md:border-0 rounded-3xl border border-border-card w-full h-35.5 p-2  animate-[card-drop_0.70s_ease-out_forwards] flex justify-center  items-center">
       <div className=" flex justify-center flex-col items-center mr-2">
         <div className="h-16 w-16 min-[390px]:h-20 min-[390px]:w-20 rounded-md mb-1">
           <img
@@ -34,7 +34,7 @@ export const Card = ({ champion }: Props) => {
         </div>
       </div>
 
-      <div className="w-2/3 grid grid-cols-2 gap-1">
+      <div className=" grid grid-cols-2 gap-1 min-[390px]">
         {championFeatures
           .filter((f) => f !== 'id' && f !== 'image' && f !== 'name')
           .map((key) => {

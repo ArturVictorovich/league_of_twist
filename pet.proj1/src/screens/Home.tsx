@@ -1,14 +1,17 @@
 import { Header } from '@/components/Header/Header';
 import { GuessingGame } from '@/components/GuessingGame/GuessingGame';
+import { StartGame } from '@/components/GuessingGame/StartGame';
 
 function Home() {
   return (
-    <div className="relative  flex flex-col justify-center items-center h-dvh overflow-hidden w-full ">
-      <div className="absolute inset-0 -z-10 bg-[url('/images/bg.mobile.webp')] bg-cover bg-center"></div>
-      <div className="absolute inset-0 -z-9 opacity-30 bg-black"></div>
-      <div className="layout  scrollbar-hidden overflow-y-auto  py-4 px-2 min-[390px]:px-4  w-full bg-app-bg h-full flex flex-col  items-center">
+    <div className="relative flex h-dvh w-full flex-col items-center justify-center overflow-hidden">
+      <div className="layout scrollbar-hidden flex h-full min-h-0 w-full flex-col items-center overflow-y-auto bg-app-bg px-2 py-4 min-[390px]:px-4 md:overflow-hidden">
         <Header />
-        <GuessingGame />
+
+        <main className="flex min-h-0 w-full flex-1 flex-col">
+          <StartGame />
+          <GuessingGame />
+        </main>
       </div>
     </div>
   );
