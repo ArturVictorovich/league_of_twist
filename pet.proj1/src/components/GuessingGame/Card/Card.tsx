@@ -20,7 +20,7 @@ export const Card = ({ champion }: Props) => {
     return null;
   }
   return (
-    <div className=" min-[390px]:h-45 card bg-card-bg md:bg-card-bg-secondary md:border-0 rounded-3xl border border-border-card w-full h-35.5 p-2  animate-[card-drop_0.70s_ease-out_forwards] flex justify-center  items-center">
+    <div className=" min-[390px]:h-45 card bg-card-bg md:bg-card-bg-secondary md:border-0 rounded-3xl border border-border-card w-full min-h-35.5 p-2  animate-[card-drop_0.70s_ease-out_forwards] flex justify-center  items-center ">
       <div className=" flex justify-center flex-col items-center mr-2">
         <div className="h-16 w-16 min-[390px]:h-20 min-[390px]:w-20 rounded-md mb-1">
           <img
@@ -34,7 +34,7 @@ export const Card = ({ champion }: Props) => {
         </div>
       </div>
 
-      <div className=" grid grid-cols-2 gap-1 min-[390px]">
+      <div className=" w-full grid grid-cols-[repeat(auto-fit,minmax(96px,1fr))] gap-1">
         {championFeatures
           .filter((f) => f !== 'id' && f !== 'image' && f !== 'name')
           .map((key) => {
@@ -48,11 +48,18 @@ export const Card = ({ champion }: Props) => {
                   )
                 : null;
             const color = getColorCard(currentFeature, guessFeature);
-
+            const isStringWithSpace =
+              typeof currentFeature === 'string' &&
+              currentFeature.includes(' ');
             return (
               <Feature className={cn(color)} key={key}>
                 {!Array.isArray(currentFeature) ? (
-                  <div className="flex gap-1 items-center justify-center ">
+                  <div
+                    className={cn(
+                      'flex gap-1 items-center justify-center ',
+                      isStringWithSpace && 'md:text-[14px] ',
+                    )}
+                  >
                     {currentFeature}
                     {hint === 'higher' && <FaChevronUp />}
                     {hint === 'lower' && <FaChevronDown />}
@@ -62,9 +69,8 @@ export const Card = ({ champion }: Props) => {
                     <div
                       key={f}
                       className={cn(
-                        'flex flex-col ',
-                        currentFeature.length > 1 &&
-                          'text-[10px] min-[390px]:text-xs',
+                        'flex items-center justify-center',
+                        currentFeature.length > 1 && 'text-xs ',
                       )}
                     >
                       {f}
