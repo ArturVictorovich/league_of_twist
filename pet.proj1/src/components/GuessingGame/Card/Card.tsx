@@ -20,21 +20,25 @@ export const Card = ({ champion }: Props) => {
     return null;
   }
   return (
-    <div className=" min-[390px]:h-45 card bg-card-bg md:bg-card-bg-secondary md:border-0 rounded-3xl border border-border-card w-full min-h-35.5 p-2  animate-[card-drop_0.70s_ease-out_forwards] flex justify-center  items-center ">
-      <div className=" flex justify-center flex-col items-center mr-2">
-        <div className="h-16 w-16 min-[390px]:h-20 min-[390px]:w-20 rounded-md mb-1">
+    <div className="card bg-card-bg md:bg-card-bg-secondary border-border-card lg:h- flex w-full animate-[card-drop_0.70s_ease-out_forwards] items-center justify-center gap-1 rounded-3xl border p-2 min-[390px]:h-45 md:border-0 lg:h-22 lg:rounded-xl">
+      <div className="flex flex-col items-center justify-center">
+        <div
+          className={cn(
+            'flex h-16 w-16 items-center justify-center rounded-md min-[390px]:h-20 min-[390px]:w-20 lg:h-17.5 lg:w-19.5',
+          )}
+        >
           <img
-            className="rounded-md"
+            className="h-full w-full rounded-md object-cover lg:rounded-lg"
             src={champion.image}
             alt={champion.name}
           />
         </div>
-        <div className="text-text-primary min-[390px]:text-lg font-medium text-center">
+        <div className="text-text-primary text-center font-medium min-[390px]:text-lg lg:hidden">
           {champion.name}
         </div>
       </div>
 
-      <div className=" w-full grid grid-cols-[repeat(auto-fit,minmax(96px,1fr))] gap-1">
+      <div className="grid w-full grid-cols-[repeat(auto-fit,minmax(96px,1fr))] gap-1 lg:flex">
         {championFeatures
           .filter((f) => f !== 'id' && f !== 'image' && f !== 'name')
           .map((key) => {
@@ -56,8 +60,8 @@ export const Card = ({ champion }: Props) => {
                 {!Array.isArray(currentFeature) ? (
                   <div
                     className={cn(
-                      'flex gap-1 items-center justify-center ',
-                      isStringWithSpace && 'md:text-[14px] ',
+                      'flex items-center justify-center gap-1',
+                      isStringWithSpace && 'md:text-[14px]',
                     )}
                   >
                     {currentFeature}
@@ -70,7 +74,7 @@ export const Card = ({ champion }: Props) => {
                       key={f}
                       className={cn(
                         'flex items-center justify-center',
-                        currentFeature.length > 1 && 'text-xs ',
+                        currentFeature.length > 1 && 'text-xs',
                       )}
                     >
                       {f}

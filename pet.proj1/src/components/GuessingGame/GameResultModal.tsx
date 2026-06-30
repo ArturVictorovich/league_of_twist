@@ -25,12 +25,12 @@ export const GameResultModal = ({
 
   return (
     <div
-      className="fixed  animate-[card-drop_0.60s_ease-out_forwards] flex items-center justify-center bg-black/50 inset-0 z-50 "
+      className="fixed inset-0 z-50 flex animate-[card-drop_0.60s_ease-out_forwards] items-center justify-center bg-black/50"
       onClick={onClose}
     >
       <div
         className={cn(
-          'flex rounded-xl justify-center items-center w-74 h-92',
+          'flex h-92 w-74 items-center justify-center rounded-xl',
           isWin
             ? 'bg-(image:--gradient-modal-success)'
             : 'bg-(image:--gradient-modal-danger)',
@@ -38,43 +38,42 @@ export const GameResultModal = ({
       >
         <div
           className={cn(
-            `w-73 h-91  bg-card-bg  flex flex-col items-center gap-2 rounded-xl p-6 shadow-xl
-          `,
+            `bg-card-bg flex h-91 w-73 flex-col items-center gap-2 rounded-xl p-6 shadow-xl`,
           )}
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="flex justify-center items-center flex-col">
+          <div className="flex flex-col items-center justify-center">
             <h2
               className={cn(
-                'mb-3 text-text-primary text-3xl font-bold',
+                'text-text-primary mb-3 text-3xl font-bold',
                 isWin ? 'text-success' : 'text-danger',
               )}
             >
               {children}
             </h2>
-            <div className="text-center text-text-secondary italic mb-2  ">
+            <div className="text-text-secondary mb-2 text-center italic">
               Загаданный чемпион был(а):
             </div>
             <div
               className={cn(
-                'w-26 h-25 mb-2 rounded-lg flex items-center justify-center',
+                'mb-2 flex h-25 w-26 items-center justify-center rounded-lg',
                 isWin ? 'bg-success-green' : 'bg-danger-red',
               )}
             >
               <img
-                className="h-24 w-25  rounded-lg"
+                className="h-24 w-25 rounded-lg"
                 src={targetChampion?.image}
                 alt={targetChampion?.name}
               />
             </div>
-            <div className="text-text-primary text-2xl font-bold mb-3">
+            <div className="text-text-primary mb-3 text-2xl font-bold">
               {targetChampion?.name}
             </div>
-            <div className="flex flex-col gap-2 items-center justify-center">
+            <div className="flex flex-col items-center justify-center gap-2">
               <Button
                 title="Начать снова"
                 type="button"
-                className="w-42 h-11 border-0 text-text- rounded-xl bg-(image:--gradient-button) text-lg font-bold"
+                className="text-text- h-11 w-42 rounded-xl border-0 bg-(image:--gradient-button) text-lg font-bold"
                 onClick={onRestart}
               >
                 Начать снова
@@ -82,7 +81,7 @@ export const GameResultModal = ({
               <Button
                 title="Закрыть"
                 type="button"
-                className="w-42 h-11 shadow-none hover:border border-0 rounded-xl text-text-muted  text-lg "
+                className="text-text-muted h-11 w-42 rounded-xl border-0 text-lg shadow-none hover:border"
                 onClick={onClose}
               >
                 Закрыть

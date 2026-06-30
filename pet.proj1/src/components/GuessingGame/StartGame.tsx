@@ -14,7 +14,7 @@ export const StartGame = () => {
       title="Начать игру"
       type="button"
       onClick={handleStartGame}
-      className="absolute top-1/2 left-1/2 transform -translate-x-1/2  bg-(image:--gradient-button) -translate-y-1/2 text-lg font-bold"
+      className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transform bg-(image:--gradient-button) text-lg font-bold"
     >
       Начать игру
     </Button>

@@ -1,9 +1,9 @@
-type TResult = "green" | "yellow" | "red";
+type TResult = 'green' | 'yellow' | 'red';
 export type TFeature = string | number | string[];
 
 export const getColorCard = (current: TFeature, guess: TFeature): TResult => {
   if (!Array.isArray(current) && !Array.isArray(guess)) {
-    return current === guess ? "green" : "red";
+    return current === guess ? 'green' : 'red';
   }
 
   const currArr = Array.isArray(current) ? current : [current];
@@ -13,12 +13,12 @@ export const getColorCard = (current: TFeature, guess: TFeature): TResult => {
     currArr.length === guessArr.length &&
     currArr.every((v, i) => v === guessArr[i])
   ) {
-    return "green";
+    return 'green';
   }
 
   const set = new Set(currArr);
 
   const hasMatch = guessArr.some((v) => set.has(v));
 
-  return hasMatch ? "yellow" : "red";
+  return hasMatch ? 'yellow' : 'red';
 };

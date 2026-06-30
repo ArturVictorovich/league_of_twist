@@ -23,8 +23,8 @@ export const Button = ({
       disabled={disabled}
       onClick={onClick}
       className={cn(
-        'h-14 w-70.5 rounded-3xl border border-border bg-blue p-1 text-text-button shadow-sm transition',
-        'enabled:hover:scale-110 enabled:hover:bg-hover',
+        'border-border bg-blue text-text-button h-14 w-70.5 rounded-3xl border p-1 shadow-sm transition',
+        'enabled:hover:bg-hover enabled:hover:scale-110',
         'disabled:cursor-not-allowed',
         'disabled:border-btn-disabled-border disabled:bg-btn-disabled-bg disabled:text-btn-disabled-text',
         className,

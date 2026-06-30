@@ -11,7 +11,7 @@ export const Feature = ({ children, className, ...props }: Props) => {
   return (
     <div
       className={cn(
-        'feature flex flex-col h-8 w-full min-w-0 items-center justify-center overflow-hidden rounded-xl border border-border-card p-1 text-center text-sm min-[390px]:text-base min-[390px]:h-9 font-semibold leading-tight text-text-primary',
+        'feature border-border-card text-text-primary flex h-8 w-full min-w-0 flex-col items-center justify-center overflow-hidden rounded-xl border p-1 text-center text-sm leading-tight font-semibold min-[390px]:h-9 min-[390px]:text-base lg:h-17.5 lg:w-19.5 lg:rounded-lg',
         className,
       )}
       {...props}

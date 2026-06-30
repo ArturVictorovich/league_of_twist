@@ -11,10 +11,12 @@
     "format": "prettier --write ."
   },
   "dependencies": {
+    "-": "^0.0.1-security.1",
     "@reduxjs/toolkit": "^2.11.2",
     "@tailwindcss/vite": "^4.1.18",
     "clsx": "^2.1.1",
     "framer-motion": "^12.36.0",
+    "prettier-plugin-tailwindcss": "^0.8.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-icons": "^5.6.0",

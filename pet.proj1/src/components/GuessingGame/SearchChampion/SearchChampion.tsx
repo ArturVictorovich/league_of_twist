@@ -65,17 +65,17 @@ export const SearchChampion = () => {
 
   if (gameStatus !== 'playing') return null;
   return (
-    <div className="w-full mb-2">
-      <div className="text-text-primary min-[390px]:text-lg  mb-1">
+    <div className="mb-2 w-full">
+      <div className="text-text-primary mb-1 min-[390px]:text-lg">
         Поиск чемпиона
       </div>
       <Select
         classNames={{
           control: ({ isFocused, isDisabled }) =>
             cn(
-              'min-h-11 min-[390px]:h-12 min-[390px]:rounded-2xl min-[390px]:text-lg rounded-xl border border-select-control-border  bg-select-control-bg px-3 transition-colors',
+              'border-select-control-border bg-select-control-bg min-h-11 rounded-xl border px-3 transition-colors min-[390px]:h-12 min-[390px]:rounded-2xl min-[390px]:text-lg',
               isFocused && 'border-select-control-border-focused',
-              isDisabled && 'cursor-not-allowed  ',
+              isDisabled && 'cursor-not-allowed',
             ),
           placeholder: () =>
             ' min-[390px]:text-lg text-sm text-select-placeholder',
@@ -87,11 +87,11 @@ export const SearchChampion = () => {
           menuList: () => 'p-1 text-select-option-text max-h-60 overflow-auto',
           option: ({ isFocused, isSelected }) =>
             cn(
-              'cursor-pointer rounded-lg text-select-option-text px-2 py-1',
+              'text-select-option-text cursor-pointer rounded-lg px-2 py-1',
               isFocused &&
-                'bg-select-option-bg-focused border border-select-menu-border  text-select-option-text-focused ',
+                'bg-select-option-bg-focused border-select-menu-border text-select-option-text-focused border',
               isSelected &&
-                'bg-select-option-bg-selected text-select-option-text-selected ',
+                'bg-select-option-bg-selected text-select-option-text-selected',
               !isSelected && !isFocused && 'text-select-option-text',
             ),
         }}

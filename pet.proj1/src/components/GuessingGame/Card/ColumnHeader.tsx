@@ -1,20 +1,21 @@
-import { nameColumnHeader } from "./championFeatures";
-import { useAppSelector } from "@/shared/hooks/redux";
-export const ColumnHeader = () => {
-  const guessedChampionsList = useAppSelector(
-    (state) => state.guessingGame.guessedChampionsList,
-  );
+import type { IChampion } from '@/type/championsCard.type';
+import { nameColumnHeader } from './championFeatures';
+
+interface Props {
+  guessedChampionsList: IChampion[];
+}
+
+export const ColumnHeader = ({ guessedChampionsList }: Props) => {
   if (guessedChampionsList.length === 0) return null;
   return (
-    <div className="flex flex-row  gap-1">
+    <div className="flex flex-row gap-1 px-1.5">
       {nameColumnHeader.map((feature) => (
-        <span
-          className="text-text-primary flex items-center justify-center text-center font-semibold min-w-17 md:w-20 "
+        <div
+          className="text-text-primary flex w-19.5 items-center justify-center text-center leading-tight"
           key={feature}
         >
           {feature}
-          <span />
-        </span>
+        </div>
       ))}
     </div>
   );

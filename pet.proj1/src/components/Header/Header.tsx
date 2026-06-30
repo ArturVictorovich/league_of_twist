@@ -2,7 +2,7 @@ import { Logo } from './Logo';
 import { ToggleTheme } from './ToggleTheme';
 export const Header = () => {
   return (
-    <header className="flex min-[390px]:h-22 bg-card-bg rounded-3xl border border-border-card  justify-between items-center w-full mb-5  p-4">
+    <header className="bg-card-bg border-border-card mb-5 flex w-full items-center justify-between rounded-3xl border p-4 min-[390px]:h-22">
       <Logo />
 
       <ToggleTheme />

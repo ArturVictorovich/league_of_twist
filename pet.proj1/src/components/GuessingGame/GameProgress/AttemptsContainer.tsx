@@ -10,11 +10,11 @@ export const AttemptsContainer = ({ gameStatus, attempts }: IProps) => {
     return null;
   }
   return (
-    <div className="text-center ">
-      <h2 className="text-text-secondary min-[390px]:text-[16px]  text-xs">
+    <div className="text-center">
+      <h2 className="text-text-secondary text-xs min-[390px]:text-[16px]">
         Попытки
       </h2>
-      <h3 className="text-text-primary min-[390px]:text-[17px]  font-bold">
+      <h3 className="text-text-primary font-bold min-[390px]:text-[17px]">
         {attempts}/10
       </h3>
     </div>
