@@ -20,11 +20,11 @@ export const Card = ({ champion }: Props) => {
     return null;
   }
   return (
-    <div className="card bg-card-bg md:bg-card-bg-secondary border-border-card lg:h- flex w-full animate-[card-drop_0.70s_ease-out_forwards] items-center justify-center gap-1 rounded-3xl border p-2 min-[390px]:h-45 md:border-0 lg:h-22 lg:rounded-xl">
+    <div className="card bg-card-bg md:bg-card-bg-secondary border-border-card grid w-full animate-[card-drop_0.70s_ease-out_forwards] grid-cols-8 items-center justify-center gap-1 rounded-3xl border p-2 min-[390px]:h-auto md:border-0 lg:h-auto lg:rounded-xl 2xl:gap-2 2xl:p-4">
       <div className="flex flex-col items-center justify-center">
         <div
           className={cn(
-            'flex h-16 w-16 items-center justify-center rounded-md min-[390px]:h-20 min-[390px]:w-20 lg:h-17.5 lg:w-19.5',
+            'sm:border-border-card relative flex items-center justify-center overflow-hidden rounded-md min-[390px]:h-auto min-[390px]:w-full sm:aspect-4/3.5 sm:rounded-2xl sm:border',
           )}
         >
           <img
@@ -32,13 +32,16 @@ export const Card = ({ champion }: Props) => {
             src={champion.image}
             alt={champion.name}
           />
+          <div className="bg-card-bg/70 text-text-primary absolute inset-x-0 bottom-0 hidden px-1 py-1 text-center text-sm leading-tight font-medium sm:block 2xl:text-base">
+            {champion.name}
+          </div>
         </div>
-        <div className="text-text-primary text-center font-medium min-[390px]:text-lg lg:hidden">
+        <div className="text-text-primary text-center font-medium min-[390px]:text-lg sm:hidden">
           {champion.name}
         </div>
       </div>
 
-      <div className="grid w-full grid-cols-[repeat(auto-fit,minmax(96px,1fr))] gap-1 lg:flex">
+      <div className="grid w-full gap-1 min-[390px]:contents">
         {championFeatures
           .filter((f) => f !== 'id' && f !== 'image' && f !== 'name')
           .map((key) => {
@@ -74,7 +77,7 @@ export const Card = ({ champion }: Props) => {
                       key={f}
                       className={cn(
                         'flex items-center justify-center',
-                        currentFeature.length > 1 && 'text-xs',
+                        currentFeature.length > 1 && 'text-xs xl:text-2xl',
                       )}
                     >
                       {f}

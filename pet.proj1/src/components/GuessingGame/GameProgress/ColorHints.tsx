@@ -10,7 +10,8 @@ export const ColorHints = ({ variant }: Props) => {
       className={cn(
         variant === 'panel' &&
           'border-border-card bg-card-bg-secondary rounded-2xl border p-3',
-        variant === 'compact' && 'text-[9px] min-[390px]:text-[11px]',
+        variant === 'compact' &&
+          'text-[9px] min-[390px]:text-[10px] sm:text-sm',
       )}
     >
       <div className="flex flex-row items-center gap-2">
