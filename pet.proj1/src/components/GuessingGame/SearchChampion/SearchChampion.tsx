@@ -65,7 +65,7 @@ export const SearchChampion = () => {
 
   if (gameStatus !== 'playing') return null;
   return (
-    <div className="mb-2 w-full">
+    <div className="w-full">
       <div className="text-text-primary mb-1 min-[390px]:text-lg">
         Поиск чемпиона
       </div>

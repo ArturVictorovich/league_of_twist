@@ -49,13 +49,13 @@ export const GuessingGame = () => {
 
   return (
     <div className="gGame bg-bg relative flex min-h-0 w-full flex-1">
-      <div className="flex w-full flex-col gap-4 md:flex-row">
-        <aside className="md:bg-card-bg md:flex md:min-h-0 md:w-3/8 md:flex-col md:gap-4 md:rounded-2xl md:p-4 lg:w-4/12 xl:w-3/12 2xl:w-2/10">
+      <div className="flex w-full flex-col gap-3 lg:flex-row">
+        <aside className="lg:bg-card-bg flex flex-col gap-3 md:w-full md:rounded-2xl md:p-3 lg:w-3/12 lg:gap-4 xl:w-4/12 xl:gap-6 2xl:w-2/10">
           <SearchChampion />
 
-          <div className="mb-2 flex w-full items-center justify-between gap-2">
-            <div className="bg-card-bg md:bg-card-bg-secondary border-border-card flex h-12 w-full max-w-9/12 items-center justify-between gap-2 rounded-3xl border px-3 min-[390px]:h-15 min-[390px]:gap-2 sm:gap-4">
-              <div>
+          <div className="flex w-full items-center justify-between gap-3">
+            <div className="bg-card-bg md:bg-card-bg-secondary border-border-card flex h-12 w-full max-w-9/12 items-center justify-center gap-2 rounded-3xl border px-3 min-[390px]:h-15 sm:gap-4">
+              <div className="flex justify-center">
                 {' '}
                 <AttemptsContainer
                   gameStatus={gameStatus}
@@ -65,7 +65,7 @@ export const GuessingGame = () => {
               <div className="hidden w-full min-[390px]:block">
                 <ProgressBar maxAttempts={maxAttempts} attempts={attempts} />
               </div>
-              <div className="shrink-0 md:hidden">
+              <div className="shrink-0 lg:hidden">
                 <ColorHints variant="compact" />
               </div>
             </div>
@@ -85,12 +85,12 @@ export const GuessingGame = () => {
               FF
             </Button>
           </div>
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <ColorHints variant="panel" />
           </div>
         </aside>
 
-        <section className="md:bg-card-bg w-full md:flex md:min-h-0 md:flex-1 md:flex-col md:overflow-hidden md:rounded-2xl md:p-2">
+        <section className="lg:bg-card-bg w-full md:flex md:min-h-0 md:flex-1 md:flex-col md:overflow-hidden md:rounded-2xl md:p-2 xl:p-3">
           <ColumnHeader guessedChampionsList={guessedChampionsList} />
           <CardList guessedChampionsList={guessedChampionsList} />
         </section>

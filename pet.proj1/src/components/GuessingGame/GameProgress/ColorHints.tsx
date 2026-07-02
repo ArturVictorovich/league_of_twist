@@ -9,7 +9,7 @@ export const ColorHints = ({ variant }: Props) => {
     <div
       className={cn(
         variant === 'panel' &&
-          'border-border-card bg-card-bg-secondary rounded-2xl border p-3',
+          'border-border-card bg-card-bg-secondary rounded-2xl border p-3 xl:text-lg',
         variant === 'compact' &&
           'text-[9px] min-[390px]:text-[10px] sm:text-sm',
       )}
