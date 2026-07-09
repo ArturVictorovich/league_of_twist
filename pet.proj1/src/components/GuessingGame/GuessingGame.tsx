@@ -49,12 +49,12 @@ export const GuessingGame = () => {
 
   return (
     <div className="gGame bg-bg relative flex min-h-0 w-full flex-1">
-      <div className="flex w-full flex-col gap-3 lg:flex-row">
-        <aside className="lg:bg-card-bg flex flex-col gap-3 md:w-full md:rounded-2xl md:p-3 lg:w-3/12 lg:gap-4 xl:w-4/12 xl:gap-6 2xl:w-2/10">
+      <div className="flex w-full flex-col gap-3 lg:flex-row 2xl:gap-5">
+        <aside className="lg:bg-card-bg relative flex flex-col gap-3 md:w-full md:rounded-2xl md:p-3 lg:w-3/12 lg:gap-4 xl:w-4/12 xl:gap-4 2xl:w-3/10 2xl:gap-5 2xl:p-5">
           <SearchChampion />
 
           <div className="flex w-full items-center justify-between gap-3">
-            <div className="bg-card-bg md:bg-card-bg-secondary border-border-card flex h-12 w-full max-w-9/12 items-center justify-center gap-2 rounded-3xl border px-3 min-[390px]:h-15 sm:gap-4">
+            <div className="bg-card-bg md:bg-card-bg-secondary border-border-card flex h-12 w-full max-w-9/12 items-center justify-center gap-2 rounded-3xl border px-3 min-[390px]:h-15 sm:gap-4 2xl:h-20">
               <div className="flex justify-center">
                 {' '}
                 <AttemptsContainer
@@ -90,7 +90,7 @@ export const GuessingGame = () => {
           </div>
         </aside>
 
-        <section className="lg:bg-card-bg w-full md:flex md:min-h-0 md:flex-1 md:flex-col md:overflow-hidden md:rounded-2xl md:p-2 xl:p-3">
+        <section className="lg:bg-card-bg w-full md:flex md:min-h-0 md:flex-1 md:flex-col md:rounded-2xl md:p-2 lg:overflow-hidden xl:p-3 2xl:gap-4">
           <ColumnHeader guessedChampionsList={guessedChampionsList} />
           <CardList guessedChampionsList={guessedChampionsList} />
         </section>

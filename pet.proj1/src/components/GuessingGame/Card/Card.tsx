@@ -20,87 +20,83 @@ export const Card = ({ champion }: Props) => {
     return null;
   }
   return (
-    <div className="card bg-card-bg lg:bg-card-bg-secondary border-border-card grid h-full w-full animate-[card-drop_0.70s_ease-out_forwards] grid-cols-[minmax(96px,19%)_1fr] items-stretch justify-center gap-1 rounded-3xl border p-2 min-[390px]:h-auto min-[390px]:grid-cols-8 min-[390px]:rounded-xl min-[390px]:p-1 md:gap-2 md:rounded-xl md:border-0 md:p-2 lg:rounded-xl xl:gap-2 xl:p-2 2xl:gap-2 2xl:p-4">
-      <div className="flex h-full w-full min-w-0 flex-col items-center justify-center">
-        <div
-          className={cn(
-            'sm:ring-border-card relative flex h-2/3 w-full min-w-0 items-center justify-center overflow-hidden rounded-md min-[390px]:aspect-4/3 min-[390px]:h-auto min-[390px]:rounded-lg sm:rounded-2xl sm:ring-1 md:aspect-4/3 md:rounded-xl lg:rounded-lg',
-          )}
-        >
-          <img
-            className="h-full w-full rounded-md object-cover lg:rounded-lg"
-            src={champion.image}
-            alt={champion.name}
-          />
-          <div className="bg-card-bg/70 text-text-primary absolute inset-x-0 bottom-0 hidden p-1 text-center text-sm font-medium min-[390px]:block min-[390px]:p-0 min-[390px]:text-[9px] sm:text-sm md:text-xs lg:text-[14px] xl:text-xl">
-            {champion.name}
-          </div>
-        </div>
-        <div className="text-text-primary text-center font-medium min-[390px]:hidden">
-          {champion.name}
-        </div>
-      </div>
-
-      <div className="grid w-full grid-cols-3 gap-1 min-[390px]:contents">
-        {championFeatures
-          .filter((f) => f !== 'id' && f !== 'image' && f !== 'name')
-          .map((key) => {
-            const guessFeature = guestingChampion[key];
-            const currentFeature = champion[key];
-            const hint =
-              key === 'releaseYear'
-                ? getYearHint(
-                    champion.releaseYear,
-                    guestingChampion.releaseYear,
-                  )
-                : null;
-            const color = getColorCard(currentFeature, guessFeature);
-            const isStringWithSpace =
-              typeof currentFeature === 'string' &&
-              currentFeature.includes(' ');
+    <div className="card bg-card-bg lg:bg-card-bg-secondary border-border-card grid w-full grid-cols-4 gap-1.5 rounded-3xl border p-3 min-[390px]:grid min-[390px]:rounded-3xl min-[390px]:p-3 sm:grid-cols-8 md:gap-2 md:rounded-xl md:border-0 md:p-2 lg:rounded-xl xl:gap-2 xl:p-2 2xl:gap-2 2xl:p-4">
+      {championFeatures
+        .filter((f) => f !== 'id' && f !== 'image')
+        .map((key) => {
+          const guessFeature = guestingChampion[key];
+          const currentFeature = champion[key];
+          const hint =
+            key === 'releaseYear'
+              ? getYearHint(champion.releaseYear, guestingChampion.releaseYear)
+              : null;
+          const color = getColorCard(currentFeature, guessFeature);
+          const isStringWithSpace =
+            typeof currentFeature === 'string' && currentFeature.includes(' ');
+          const maxLengthWord = 8;
+          const isLongWord =
+            typeof currentFeature === 'string' &&
+            currentFeature.length > maxLengthWord;
+          if (key === 'name') {
             return (
-              <Feature
-                className={cn(
-                  color,
-                  key === 'releaseYear' &&
-                    'col-span-3 w-1/3 justify-self-center min-[390px]:col-span-1 min-[390px]:w-full',
-                )}
-                key={key}
-              >
-                {!Array.isArray(currentFeature) ? (
-                  <div
+              <Feature className={cn('border-border-card relative')} key={key}>
+                <div className="h-full w-full rounded-xl">
+                  <img
+                    className="h-full w-full rounded-xl object-cover"
+                    src={champion.image}
+                    alt={champion.name}
+                  />
+                  <h2
                     className={cn(
-                      'flex items-center justify-center gap-1',
-                      isStringWithSpace &&
-                        'leading-2 sm:leading-3 md:text-[12px] lg:text-base lg:leading-none xl:text-lg',
+                      'bg-card-bg/70 text-text-primary absolute inset-x-0 bottom-0 p-1 text-center text-xs font-medium min-[390px]:text-sm sm:text-sm md:text-xs lg:text-[14px] xl:text-lg',
+                      isStringWithSpace && 'sm:text-xs xl:text-sm',
+                      isLongWord && 'sm:text-xs xl:text-sm',
                     )}
                   >
-                    {currentFeature}
-                    {hint === 'higher' && (
-                      <FaChevronUp className="absolute top-2 md:top-3 xl:top-4" />
-                    )}
-                    {hint === 'lower' && (
-                      <FaChevronDown className="absolute bottom-2 md:bottom-3 xl:bottom-4" />
-                    )}
-                  </div>
-                ) : (
-                  currentFeature.map((f) => (
-                    <div
-                      key={f}
-                      className={cn(
-                        'flex items-center justify-center',
-                        currentFeature.length > 1 &&
-                          'min-[390px]:xs min-[390px]:leading-3 sm:leading-4 md:text-[12px] xl:text-xl xl:leading-none',
-                      )}
-                    >
-                      {f}
-                    </div>
-                  ))
-                )}
+                    {champion.name}
+                  </h2>
+                </div>
               </Feature>
             );
-          })}
-      </div>
+          }
+
+          return (
+            <Feature className={cn(color)} key={key}>
+              {!Array.isArray(currentFeature) ? (
+                <div
+                  className={cn(
+                    'relative flex items-center justify-center gap-1',
+                    isStringWithSpace &&
+                      'sm:leading-3 md:text-[12px] lg:text-base lg:leading-none xl:text-base',
+                  )}
+                >
+                  {currentFeature}
+                  {hint === 'higher' && (
+                    <FaChevronUp className="absolute -top-3 left-1/2 -translate-x-1/2 min-[390px]:-top-4 sm:-top-4 xl:-top-5" />
+                  )}
+                  {hint === 'lower' && (
+                    <FaChevronDown className="absolute -bottom-3 left-1/2 -translate-x-1/2 min-[390px]:-bottom-4 sm:-bottom-4 xl:-bottom-5" />
+                  )}
+                </div>
+              ) : (
+                currentFeature.map((f) => (
+                  <div
+                    key={f}
+                    className={cn(
+                      'flex items-center justify-center',
+                      currentFeature.length > 1 &&
+                        'min-[390px]:xs min-[390px]:leading-3 sm:leading-4 md:text-[12px] lg:text-base xl:text-lg xl:leading-none',
+                      f.length > maxLengthWord &&
+                        'text-xs sm:text-[10px] md:text-[11px] lg:text-sm xl:text-sm',
+                    )}
+                  >
+                    {f}
+                  </div>
+                ))
+              )}
+            </Feature>
+          );
+        })}
     </div>
   );
 };

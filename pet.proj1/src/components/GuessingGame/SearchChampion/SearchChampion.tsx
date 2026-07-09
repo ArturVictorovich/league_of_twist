@@ -66,14 +66,14 @@ export const SearchChampion = () => {
   if (gameStatus !== 'playing') return null;
   return (
     <div className="w-full">
-      <div className="text-text-primary mb-1 min-[390px]:text-lg">
+      <div className="text-text-primary mb-1 min-[390px]:text-lg 2xl:text-xl">
         Поиск чемпиона
       </div>
       <Select
         classNames={{
           control: ({ isFocused, isDisabled }) =>
             cn(
-              'border-select-control-border bg-select-control-bg min-h-11 rounded-xl border px-3 transition-colors min-[390px]:h-12 min-[390px]:rounded-2xl min-[390px]:text-lg',
+              'border-select-control-border bg-select-control-bg min-h-11 rounded-xl border px-3 transition-colors min-[390px]:h-12 min-[390px]:rounded-2xl min-[390px]:text-lg ',
               isFocused && 'border-select-control-border-focused',
               isDisabled && 'cursor-not-allowed',
             ),
