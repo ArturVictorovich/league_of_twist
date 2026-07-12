@@ -7,13 +7,13 @@ import { useAppDispatch, useAppSelector } from '@/shared/hooks/redux';
 import { closeGame, ffGame } from '@/redux/GuessingGame/guessingGame.slice';
 import { Button } from '@/components/ui/Button';
 
-import { AttemptsContainer } from './GameProgress/AttemptsContainer';
 import { cn } from '@/lib/utils/cn';
 import { startGameThunk } from '@/redux/GuessingGame/guessingGame.thunks';
 import { ColorHints } from './GameProgress/ColorHints';
 import { ColumnHeader } from './Card/ColumnHeader';
 import ProgressBar from './GameProgress/ProgressBar/ProgressBar';
 import { MAX_ATTEMPTS } from '@/constants';
+import { Attempts } from './GameProgress/Attempts';
 export const GuessingGame = () => {
   const dispatch = useAppDispatch();
   const handleCloseGame = () => {
@@ -48,19 +48,16 @@ export const GuessingGame = () => {
   }
 
   return (
-    <div className="gGame bg-bg relative flex min-h-0 w-full flex-1">
+    <div className="gGame bg-bg relative flex min-h-0 w-full flex-1 lg:min-h-0 lg:overflow-hidden">
       <div className="flex w-full flex-col gap-3 lg:flex-row 2xl:gap-5">
-        <aside className="lg:bg-card-bg relative flex flex-col gap-3 md:w-full md:rounded-2xl md:p-3 lg:w-3/12 lg:gap-4 xl:w-4/12 xl:gap-4 2xl:w-3/10 2xl:gap-5 2xl:p-5">
+        <aside className="lg:bg-card-bg relative flex flex-col gap-3 pt-10 md:w-full md:rounded-2xl lg:m-0 lg:w-4/14 lg:gap-4 lg:px-2.5 xl:w-4/12 xl:gap-4 xl:px-5 2xl:w-3/10 2xl:gap-5 2xl:p-5 2xl:pt-15">
           <SearchChampion />
 
           <div className="flex w-full items-center justify-between gap-3">
-            <div className="bg-card-bg md:bg-card-bg-secondary border-border-card flex h-12 w-full max-w-9/12 items-center justify-center gap-2 rounded-3xl border px-3 min-[390px]:h-15 sm:gap-4 2xl:h-20">
+            <div className="bg-card-bg md:bg-card-bg-secondary border-border-card flex h-12 w-full max-w-9/12 items-center justify-center gap-2 rounded-3xl border px-3 min-[390px]:h-15 sm:gap-4 md:px-4 2xl:h-20 2xl:px-5">
               <div className="flex justify-center">
                 {' '}
-                <AttemptsContainer
-                  gameStatus={gameStatus}
-                  attempts={attempts}
-                />
+                <Attempts gameStatus={gameStatus} attempts={attempts} />
               </div>{' '}
               <div className="hidden w-full min-[390px]:block">
                 <ProgressBar maxAttempts={maxAttempts} attempts={attempts} />
@@ -77,7 +74,7 @@ export const GuessingGame = () => {
               onClick={handleFF}
               title="Сдаться"
               className={cn(
-                'h-12 w-26.5 border text-lg font-bold min-[390px]:h-15 min-[390px]:w-27 min-[390px]:text-2xl',
+                'h-12 w-26.5 border text-lg font-bold min-[390px]:h-15 min-[390px]:w-27 min-[390px]:text-2xl 2xl:h-20 2xl:w-32 2xl:text-3xl',
                 isFFEnabled &&
                   'border-btn-ff-border bg-btn-ff-bg text-btn-ff-text',
               )}
@@ -90,7 +87,7 @@ export const GuessingGame = () => {
           </div>
         </aside>
 
-        <section className="lg:bg-card-bg w-full md:flex md:min-h-0 md:flex-1 md:flex-col md:rounded-2xl md:p-2 lg:overflow-hidden xl:p-3 2xl:gap-4">
+        <section className="lg:bg-card-bg w-full md:flex md:min-h-0 md:flex-1 md:flex-col md:rounded-2xl lg:min-h-0 lg:overflow-hidden lg:p-2 xl:p-3 2xl:gap-4 2xl:p-4">
           <ColumnHeader guessedChampionsList={guessedChampionsList} />
           <CardList guessedChampionsList={guessedChampionsList} />
         </section>

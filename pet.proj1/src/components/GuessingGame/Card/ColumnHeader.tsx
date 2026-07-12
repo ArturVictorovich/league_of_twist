@@ -8,14 +8,14 @@ interface Props {
 export const ColumnHeader = ({ guessedChampionsList }: Props) => {
   if (guessedChampionsList.length === 0) return null;
   return (
-    <div className="hidden grid-cols-8 gap-2 px-2 sm:grid lg:gap-3">
+    <div className="hidden border border-transparent px-2 sm:grid sm:grid-cols-8 sm:gap-1.5 md:gap-1 md:px-1.5 xl:gap-2 2xl:gap-3 2xl:px-2">
       {nameColumnHeader.map((feature) => (
-        <div
-          className="text-text-primary flex w-full min-w-0 items-center justify-center p-2 text-center text-sm leading-tight xl:text-xl 2xl:text-xl"
+        <p
+          className="text-text-primary flex h-auto w-full min-w-0 items-center justify-center border border-x border-transparent p-1 text-center text-sm leading-tight lg:text-base xl:text-xl 2xl:text-xl"
           key={feature}
         >
           {feature}
-        </div>
+        </p>
       ))}
     </div>
   );

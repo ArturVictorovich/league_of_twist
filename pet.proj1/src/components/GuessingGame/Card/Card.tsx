@@ -20,7 +20,7 @@ export const Card = ({ champion }: Props) => {
     return null;
   }
   return (
-    <div className="card bg-card-bg lg:bg-card-bg-secondary border-border-card grid w-full grid-cols-4 gap-1.5 rounded-3xl border p-3 min-[390px]:grid min-[390px]:rounded-3xl min-[390px]:p-3 sm:grid-cols-8 md:gap-2 md:rounded-xl md:border-0 md:p-2 lg:rounded-xl xl:gap-2 xl:p-2 2xl:gap-2 2xl:p-4">
+    <div className="card bg-card-bg lg:bg-card-bg-secondary border-border-card grid w-full grid-cols-4 gap-1.5 rounded-3xl border p-2 min-[390px]:grid min-[390px]:rounded-3xl min-[390px]:p-2 sm:grid-cols-8 md:gap-1 md:rounded-xl md:p-1.5 lg:rounded-2xl xl:gap-2 2xl:gap-3 2xl:p-2">
       {championFeatures
         .filter((f) => f !== 'id' && f !== 'image')
         .map((key) => {
@@ -39,8 +39,11 @@ export const Card = ({ champion }: Props) => {
             currentFeature.length > maxLengthWord;
           if (key === 'name') {
             return (
-              <Feature className={cn('border-border-card relative')} key={key}>
-                <div className="h-full w-full rounded-xl">
+              <Feature
+                className="border-border-card overflow-hidden rounded-xl p-0"
+                key={key}
+              >
+                <div className="relative h-full w-full rounded-xl">
                   <img
                     className="h-full w-full rounded-xl object-cover"
                     src={champion.image}
@@ -48,7 +51,7 @@ export const Card = ({ champion }: Props) => {
                   />
                   <h2
                     className={cn(
-                      'bg-card-bg/70 text-text-primary absolute inset-x-0 bottom-0 p-1 text-center text-xs font-medium min-[390px]:text-sm sm:text-sm md:text-xs lg:text-[14px] xl:text-lg',
+                      'bg-card-bg/70 text-text-primary absolute inset-x-0 bottom-0 w-full text-center text-xs font-medium min-[390px]:text-sm min-[390px]:leading-tight sm:text-sm md:text-xs lg:text-sm xl:text-lg 2xl:text-xl',
                       isStringWithSpace && 'sm:text-xs xl:text-sm',
                       isLongWord && 'sm:text-xs xl:text-sm',
                     )}
@@ -67,15 +70,15 @@ export const Card = ({ champion }: Props) => {
                   className={cn(
                     'relative flex items-center justify-center gap-1',
                     isStringWithSpace &&
-                      'sm:leading-3 md:text-[12px] lg:text-base lg:leading-none xl:text-base',
+                      'sm:leading-3 md:text-[12px] lg:text-base lg:leading-none xl:text-base 2xl:text-lg',
                   )}
                 >
                   {currentFeature}
                   {hint === 'higher' && (
-                    <FaChevronUp className="absolute -top-3 left-1/2 -translate-x-1/2 min-[390px]:-top-4 sm:-top-4 xl:-top-5" />
+                    <FaChevronUp className="absolute -top-3 left-1/2 -translate-x-1/2 min-[390px]:-top-4 sm:-top-4 xl:-top-6" />
                   )}
                   {hint === 'lower' && (
-                    <FaChevronDown className="absolute -bottom-3 left-1/2 -translate-x-1/2 min-[390px]:-bottom-4 sm:-bottom-4 xl:-bottom-5" />
+                    <FaChevronDown className="absolute -bottom-3 left-1/2 -translate-x-1/2 min-[390px]:-bottom-4 sm:-bottom-4 xl:-bottom-6" />
                   )}
                 </div>
               ) : (
@@ -85,9 +88,9 @@ export const Card = ({ champion }: Props) => {
                     className={cn(
                       'flex items-center justify-center',
                       currentFeature.length > 1 &&
-                        'min-[390px]:xs min-[390px]:leading-3 sm:leading-4 md:text-[12px] lg:text-base xl:text-lg xl:leading-none',
+                        'min-[390px]:xs min-[390px]:leading-tight sm:leading-4 md:text-[12px] lg:text-base xl:leading-none 2xl:text-lg',
                       f.length > maxLengthWord &&
-                        'text-xs sm:text-[10px] md:text-[11px] lg:text-sm xl:text-sm',
+                        'text-xs sm:text-[10px] md:text-[11px] lg:text-sm xl:text-sm 2xl:text-base',
                     )}
                   >
                     {f}

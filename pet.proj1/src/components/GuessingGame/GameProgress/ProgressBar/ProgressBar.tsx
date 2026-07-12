@@ -12,7 +12,7 @@ const ProgressBar = ({ maxAttempts, attempts }: Props) => {
   const label = getProgressLabel(attempts);
   return (
     <div className="flex flex-col justify-center gap-2 sm:gap-2 sm:px-2">
-      <div className="text-text-secondary text-center leading-3 min-[390px]:text-xs sm:text-sm md:text-xs xl:text-base">
+      <div className="text-text-muted text-center leading-3 min-[390px]:text-xs sm:text-sm md:text-sm xl:text-base">
         {label}
       </div>
       <div className="grid h-auto w-full grid-cols-10 gap-1">

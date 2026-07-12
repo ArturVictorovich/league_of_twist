@@ -5,5 +5,5 @@ export function getProgressLabel(attempts: number): string {
   if (attempts <= 7) {
     return 'Нужно сузить круг';
   }
-  return 'Осталось мало попыток';
+  return 'Последний шанс';
 }

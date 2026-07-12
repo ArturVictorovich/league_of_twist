@@ -73,7 +73,7 @@ export const SearchChampion = () => {
         classNames={{
           control: ({ isFocused, isDisabled }) =>
             cn(
-              'border-select-control-border bg-select-control-bg min-h-11 rounded-xl border px-3 transition-colors min-[390px]:h-12 min-[390px]:rounded-2xl min-[390px]:text-lg ',
+              'border-select-control-border bg-select-control-bg min-h-11 rounded-xl border px-3 transition-colors min-[390px]:h-12 min-[390px]:rounded-2xl min-[390px]:text-lg md:px-4',
               isFocused && 'border-select-control-border-focused',
               isDisabled && 'cursor-not-allowed',
             ),
