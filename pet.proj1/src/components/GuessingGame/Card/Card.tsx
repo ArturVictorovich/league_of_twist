@@ -69,9 +69,10 @@ export const Card = ({ champion }: Props) => {
               {!Array.isArray(currentFeature) ? (
                 <div
                   className={cn(
-                    'relative flex items-center justify-center gap-1',
+                    'relative flex items-center justify-center',
                     isStringWithSpace &&
                       'sm:leading-3 md:text-[12px] lg:text-base lg:leading-none xl:text-base 2xl:text-lg',
+                    isLongWord && 'min-[390px]:text-[11px]',
                   )}
                 >
                   {currentFeature}

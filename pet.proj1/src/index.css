@@ -12,15 +12,15 @@
   );
   --gradient-modal-danger: linear-gradient(
     180deg,
-    #c31e36 30%,
-    #b1bcbd 50%,
-    #c31e36 70%
+    #e11d48 22%,
+    #38bdf8 50%,
+    #e11d48 78%
   );
   --gradient-modal-success: linear-gradient(
     180deg,
-    #08754d 30%,
-    #b1bcbd 50%,
-    #08754d 70%
+    #059669 22%,
+    #38bdf8 50%,
+    #059669 78%
   );
   --app-bg: #dbeafe;
   --card-bg: #f8fafc;
@@ -73,9 +73,34 @@
   --success-green: #10b981;
   --warning-yellow: #f59e0b;
   --danger-red: #f43f5e;
+
+  --hint-green-bg: #bbf7d0;
+  --hint-green-border: #22c55e;
+  --hint-green-text: #14532d;
+
+  --hint-yellow-bg: #fde68a;
+  --hint-yellow-border: #f59e0b;
+  --hint-yellow-text: #713f12;
+
+  --hint-red-bg: #fecdd3;
+  --hint-red-border: #fb7185;
+  --hint-red-text: #881337;
 }
 
 .dark {
+  --gradient-modal-danger: linear-gradient(
+    180deg,
+    #c31e36 30%,
+    #b1bcbd 50%,
+    #c31e36 70%
+  );
+  --gradient-modal-success: linear-gradient(
+    180deg,
+    #08754d 30%,
+    #b1bcbd 50%,
+    #08754d 70%
+  );
+
   --app-bg: #050816;
   --card-bg: #1e293b;
   --card-bg-secondary: #2d3a51;
@@ -127,6 +152,18 @@
   --success-green: #08754d;
   --warning-yellow: #cd9b1b;
   --danger-red: #c31e36;
+
+  --hint-green-bg: #0f6143;
+  --hint-green-border: #50d5a4;
+  --hint-green-text: #f8fafc;
+
+  --hint-yellow-bg: #cd9b1b;
+  --hint-yellow-border: #fcd34d;
+  --hint-yellow-text: #f8fafc;
+
+  --hint-red-bg: #953745;
+  --hint-red-border: #fca5a5;
+  --hint-red-text: #f8fafc;
 }
 
 @theme inline {
@@ -182,16 +219,19 @@ button {
   cursor: pointer;
 }
 .green {
-  background: #0f6143;
-  border: 1px solid #50d5a4;
+  background: var(--hint-green-bg);
+  border: 1px solid var(--hint-green-border);
+  color: var(--hint-green-text);
 }
 .yellow {
-  background: #cd9b1b;
-  border: 1px solid #fcd34d;
+  background: var(--hint-yellow-bg);
+  border: 1px solid var(--hint-yellow-border);
+  color: var(--hint-yellow-text);
 }
 .red {
-  background: #953745;
-  border: 1px solid #fca5a5;
+  background: var(--hint-red-bg);
+  border: 1px solid var(--hint-red-border);
+  color: var(--hint-red-text);
 }
 /* анимация появления карточки  */
 @keyframes card-drop {

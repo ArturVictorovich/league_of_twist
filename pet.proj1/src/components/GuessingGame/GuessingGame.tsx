@@ -50,11 +50,11 @@ export const GuessingGame = () => {
   return (
     <div className="gGame bg-bg relative flex min-h-0 w-full flex-1 lg:min-h-0 lg:overflow-hidden">
       <div className="flex w-full flex-col gap-3 lg:flex-row 2xl:gap-5">
-        <aside className="lg:bg-card-bg relative flex flex-col gap-3 pt-10 md:w-full md:rounded-2xl lg:m-0 lg:w-4/14 lg:gap-4 lg:px-2.5 xl:w-4/12 xl:gap-4 xl:px-5 2xl:w-3/10 2xl:gap-5 2xl:p-5 2xl:pt-15">
+        <aside className="lg:bg-card-bg relative flex flex-col items-center gap-3 pt-10 md:w-full md:rounded-2xl lg:m-0 lg:w-4/14 lg:gap-4 lg:px-2.5 xl:w-4/12 xl:gap-4 xl:px-5 2xl:w-3/10 2xl:gap-5 2xl:p-5 2xl:pt-15">
           <SearchChampion />
 
-          <div className="flex w-full items-center justify-between gap-3">
-            <div className="bg-card-bg md:bg-card-bg-secondary border-border-card flex h-12 w-full max-w-9/12 items-center justify-center gap-2 rounded-3xl border px-3 min-[390px]:h-15 sm:gap-4 md:px-4 2xl:h-20 2xl:px-5">
+          <div className="flex w-full justify-between gap-3 sm:w-4/5 lg:w-full">
+            <div className="bg-card-bg md:bg-card-bg-secondary border-border-card flex h-12 w-full max-w-9/12 items-center justify-center gap-2 rounded-3xl border px-3 min-[390px]:h-15 sm:gap-4 md:px-4 lg:w-full 2xl:h-20 2xl:px-5">
               <div className="flex justify-center">
                 {' '}
                 <Attempts gameStatus={gameStatus} attempts={attempts} />
@@ -82,7 +82,7 @@ export const GuessingGame = () => {
               FF
             </Button>
           </div>
-          <div className="hidden lg:block">
+          <div className="hidden w-full lg:block">
             <ColorHints variant="panel" />
           </div>
         </aside>
