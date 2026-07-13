@@ -7,6 +7,7 @@ import { getYearHint } from '@/shared/utils/getYearHint';
 import { FaChevronUp } from 'react-icons/fa';
 import { FaChevronDown } from 'react-icons/fa';
 import { cn } from '@/lib/utils/cn';
+import { PortraitChampion } from '../PortraitWrapper/PortraitChampion';
 interface Props {
   champion: IChampion;
 }
@@ -43,22 +44,20 @@ export const Card = ({ champion }: Props) => {
                 className="border-border-card overflow-hidden rounded-xl p-0"
                 key={key}
               >
-                <div className="relative h-full w-full rounded-xl">
-                  <img
-                    className="h-full w-full rounded-xl object-cover"
-                    src={champion.image}
-                    alt={champion.name}
-                  />
-                  <h2
-                    className={cn(
-                      'bg-card-bg/70 text-text-primary absolute inset-x-0 bottom-0 w-full text-center text-xs font-medium min-[390px]:text-sm min-[390px]:leading-tight sm:text-sm md:text-xs lg:text-sm xl:text-lg 2xl:text-xl',
-                      isStringWithSpace && 'sm:text-xs xl:text-sm',
-                      isLongWord && 'sm:text-xs xl:text-sm',
-                    )}
-                  >
-                    {champion.name}
-                  </h2>
-                </div>
+                <PortraitChampion champion={champion}>
+                  <div className="absolute inset-x-0 bottom-0 z-20">
+                    {' '}
+                    <h2
+                      className={cn(
+                        'bg-card-bg/70 text-text-primary w-full text-center text-xs font-medium min-[390px]:text-sm min-[390px]:leading-tight sm:text-sm md:text-xs lg:text-sm xl:text-lg 2xl:text-xl',
+                        isStringWithSpace && 'sm:text-xs xl:text-sm',
+                        isLongWord && 'sm:text-xs xl:text-sm',
+                      )}
+                    >
+                      {champion.name}
+                    </h2>
+                  </div>
+                </PortraitChampion>
               </Feature>
             );
           }

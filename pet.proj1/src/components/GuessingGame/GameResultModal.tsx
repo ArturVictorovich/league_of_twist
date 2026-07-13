@@ -3,6 +3,7 @@ import { Button } from '../ui/Button';
 
 import { cn } from '@/lib/utils/cn';
 import type { IChampion } from '@/type/championsCard.type';
+import { PortraitChampion } from './PortraitWrapper/PortraitChampion';
 
 interface IGameResultModalProps {
   isOpen: boolean;
@@ -56,15 +57,15 @@ export const GameResultModal = ({
             </div>
             <div
               className={cn(
-                'mb-2 flex h-25 w-26 items-center justify-center rounded-lg',
+                'mb-2 flex h-25 w-26 items-center justify-center rounded-xl',
                 isWin ? 'bg-success-green' : 'bg-danger-red',
               )}
             >
-              <img
-                className="h-24 w-25 rounded-lg"
-                src={targetChampion?.image}
-                alt={targetChampion?.name}
-              />
+              <div className="h-24 w-25 rounded-lg">
+                {targetChampion && (
+                  <PortraitChampion champion={targetChampion} />
+                )}
+              </div>
             </div>
             <div className="text-text-primary mb-3 text-2xl font-bold">
               {targetChampion?.name}

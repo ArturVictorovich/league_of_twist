@@ -65,7 +65,7 @@ export const SearchChampion = () => {
 
   if (gameStatus !== 'playing') return null;
   return (
-    <div className="w-full">
+    <div className="z-50 w-full">
       <div className="text-text-primary mb-1 min-[390px]:text-lg 2xl:text-xl">
         Поиск чемпиона
       </div>
@@ -83,7 +83,7 @@ export const SearchChampion = () => {
           indicatorsContainer: () => 'text-text-muted gap-1',
           indicatorSeparator: () => 'hidden',
           menu: () =>
-            'z-50 mt-1  rounded-xl border border-select-menu-border bg-select-menu-bg shadow-lg min-[390px]:text-lg ',
+            ' mt-1  rounded-xl border border-select-menu-border bg-select-menu-bg shadow-lg min-[390px]:text-lg ',
           menuList: () => 'p-1 text-select-option-text max-h-60 overflow-auto',
           option: ({ isFocused, isSelected }) =>
             cn(
