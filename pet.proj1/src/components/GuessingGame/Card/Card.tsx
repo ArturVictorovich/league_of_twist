@@ -49,9 +49,11 @@ export const Card = ({ champion }: Props) => {
                     {' '}
                     <h2
                       className={cn(
-                        'bg-card-bg/70 text-text-primary w-full text-center text-xs font-medium min-[390px]:text-sm min-[390px]:leading-tight sm:text-sm md:text-xs lg:text-sm xl:text-lg 2xl:text-xl',
-                        isStringWithSpace && 'sm:text-xs xl:text-sm',
-                        isLongWord && 'sm:text-xs xl:text-sm',
+                        'bg-card-bg/70 text-text-primary w-full p-1 text-center text-xs font-medium min-[390px]:text-sm min-[390px]:leading-tight sm:text-sm md:text-xs lg:text-sm xl:text-lg',
+                        isStringWithSpace &&
+                          'p-0.5 sm:text-xs xl:text-sm 2xl:text-lg',
+                        isLongWord &&
+                          '2xl:text-lg" p-0.5 sm:text-xs xl:text-sm',
                       )}
                     >
                       {champion.name}
