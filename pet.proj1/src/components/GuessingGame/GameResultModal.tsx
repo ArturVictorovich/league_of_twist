@@ -46,7 +46,7 @@ export const GameResultModal = ({
           <div className="flex flex-col items-center justify-center gap-3">
             <h2
               className={cn(
-                'text-text-primary text-3xl font-bold md:text-4xl xl:text-5xl',
+                'text-text-primary animate-[title-pulse_1.2s_ease-in-out_infinite] text-3xl font-bold md:text-4xl xl:text-5xl',
                 isWin ? 'text-success' : 'text-danger',
               )}
             >

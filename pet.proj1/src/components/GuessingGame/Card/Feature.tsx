@@ -1,13 +1,17 @@
 import type { ReactNode } from 'react';
 import { cn } from '@/lib/utils/cn';
 
-interface Props {
+interface Props extends React.HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
-  onClick?: () => void;
   className?: string;
 }
 
-export const Feature = ({ children, className, ...props }: Props) => {
+export const Feature = ({
+  children,
+
+  className,
+  ...props
+}: Props) => {
   return (
     <div
       className={cn(

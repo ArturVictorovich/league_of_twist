@@ -233,6 +233,19 @@ button {
   border: 1px solid var(--hint-red-border);
   color: var(--hint-red-text);
 }
+/* пульсация заголовка */
+@keyframes title-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.06);
+    opacity: 0.85;
+  }
+}
 /* анимация появления карточки  */
 @keyframes card-drop {
   0% {
@@ -249,20 +262,38 @@ button {
     transform: translateY(0);
   }
 }
-/* анимация свойсв картчоки  */
-@keyframes feature-flip {
+
+@keyframes feature-reveal {
   0% {
-    transform: rotateX(0);
+    opacity: 0;
+    transform: rotateX(80deg) scale(0.96);
   }
 
-  50% {
-    transform: rotateX(90deg);
+  60% {
+    opacity: 1;
+    transform: rotateX(-6deg) scale(1.02);
   }
 
   100% {
-    transform: rotateX(0);
+    opacity: 1;
+    transform: rotateX(0) scale(1);
   }
 }
+
+.cardAnimation {
+  animation-name: card-drop;
+  animation-duration: 500ms;
+  animation-delay: 100ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
+.featureAnimation {
+  animation-name: feature-reveal;
+  animation-timing-function: ease-out;
+  animation-duration: 700ms;
+  animation-fill-mode: both;
+}
+
 @layer base {
   ::-webkit-scrollbar {
     width: 5px;

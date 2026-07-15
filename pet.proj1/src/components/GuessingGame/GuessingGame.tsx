@@ -14,7 +14,9 @@ import { ColumnHeader } from './Card/ColumnHeader';
 import ProgressBar from './GameProgress/ProgressBar/ProgressBar';
 import { MAX_ATTEMPTS } from '@/constants';
 import { Attempts } from './GameProgress/Attempts';
+import { useEffect, useState } from 'react';
 export const GuessingGame = () => {
+  const [endReveal, setEndReveal] = useState<boolean>(false);
   const dispatch = useAppDispatch();
   const handleCloseGame = () => {
     dispatch(closeGame());
@@ -37,6 +39,11 @@ export const GuessingGame = () => {
   const isGameFinished = gameStatus === 'win' || gameStatus === 'lose';
   const isWin = gameStatus === 'win';
   const isFFVisible = gameStatus !== 'idle';
+  const isWinGame = isGameFinished && endReveal;
+  const isLoseGame = gameStatus === 'lose';
+  useEffect(() => {
+    setEndReveal(false);
+  }, [guessedChampionsList.length]);
 
   const maxAttempts = MAX_ATTEMPTS;
   const attempts = guessedChampionsList.length;
@@ -54,7 +61,7 @@ export const GuessingGame = () => {
           <SearchChampion />
 
           <div className="flex w-full justify-between gap-3 sm:w-4/5 lg:w-full">
-            <div className="bg-card-bg md:bg-card-bg-secondary border-border-card flex h-12 w-full max-w-9/12 items-center justify-center gap-2 rounded-3xl border px-3 min-[390px]:h-15 sm:gap-4 md:px-4 lg:w-full 2xl:h-20 2xl:px-5">
+            <div className="bg-card-bg md:bg-card-bg-secondary border-border-card flex h-12 w-full max-w-9/12 items-center justify-center gap-2 rounded-3xl border px-3 min-[390px]:h-15 sm:gap-4 md:px-4 lg:w-full 2xl:px-5">
               <div className="flex justify-center">
                 {' '}
                 <Attempts gameStatus={gameStatus} attempts={attempts} />
@@ -74,7 +81,7 @@ export const GuessingGame = () => {
               onClick={handleFF}
               title="Сдаться"
               className={cn(
-                'h-12 w-26.5 border text-lg font-bold min-[390px]:h-15 min-[390px]:w-27 min-[390px]:text-2xl 2xl:h-20 2xl:w-32 2xl:text-3xl',
+                'h-12 w-26.5 border text-lg font-bold min-[390px]:h-15 min-[390px]:w-27 min-[390px]:text-2xl 2xl:w-32 2xl:text-3xl',
                 isFFEnabled &&
                   'border-btn-ff-border bg-btn-ff-bg text-btn-ff-text',
               )}
@@ -89,7 +96,10 @@ export const GuessingGame = () => {
 
         <section className="lg:bg-card-bg w-full md:flex md:min-h-0 md:flex-1 md:flex-col md:rounded-2xl lg:min-h-0 lg:overflow-hidden lg:p-2 xl:p-3 2xl:gap-4 2xl:p-4">
           <ColumnHeader guessedChampionsList={guessedChampionsList} />
-          <CardList guessedChampionsList={guessedChampionsList} />
+          <CardList
+            onRevealEnd={() => setEndReveal(true)}
+            guessedChampionsList={guessedChampionsList}
+          />
         </section>
       </div>
 
@@ -98,7 +108,7 @@ export const GuessingGame = () => {
         isWin={isWin}
         onClose={handleCloseGame}
         onRestart={handleRestartGame}
-        isOpen={isGameFinished}
+        isOpen={isWinGame || isLoseGame}
       >
         {isWin ? 'Победа!' : 'Поражение!'}
       </GameResultModal>
