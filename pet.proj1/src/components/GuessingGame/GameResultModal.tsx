@@ -26,12 +26,12 @@ export const GameResultModal = ({
 
   return (
     <div
-      className="fixed inset-0 z-50 flex animate-[card-drop_0.60s_ease-out_forwards] items-center justify-center bg-black/50"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50"
       onClick={onClose}
     >
       <div
         className={cn(
-          'flex w-8/10 items-center justify-center rounded-xl p-0.5 sm:w-6/10 lg:w-3/10',
+          'flex w-8/10 animate-[card-drop_0.60s_ease-out_forwards] items-center justify-center rounded-xl p-0.5 sm:w-6/10 lg:w-3/10',
           isWin
             ? 'bg-(image:--gradient-modal-success)'
             : 'bg-(image:--gradient-modal-danger)',

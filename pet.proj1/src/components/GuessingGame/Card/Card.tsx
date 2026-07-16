@@ -45,12 +45,12 @@ export const Card = ({ champion, onRevealEnd }: Props) => {
           return (
             <Feature
               className={cn(
-                'featureAnimation border-border-card overflow-hidden rounded-xl p-0',
+                'featureAnimation border-border-card relative overflow-hidden rounded-xl p-0',
               )}
               key={key}
             >
               <PortraitChampion champion={champion}>
-                <div className="absolute inset-x-0 bottom-0 z-20">
+                <div className="absolute inset-x-0 bottom-0 z-20 transition-opacity duration-200">
                   {' '}
                   <h2
                     className={cn(
@@ -83,7 +83,7 @@ export const Card = ({ champion, onRevealEnd }: Props) => {
                   'relative flex items-center justify-center',
                   isStringWithSpace &&
                     'sm:leading-3 md:text-[12px] lg:text-base lg:leading-none xl:text-base 2xl:text-lg',
-                  isLongWord && 'min-[390px]:text-[11px]',
+                  isLongWord && 'min-[390px]:text-[11px] xl:text-sm',
                 )}
               >
                 {currentFeature}

@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>League of Twist Start Preview</title>
+    <style>
+      :root {
+        --app-bg: #050816;
+        --card-bg: #1e293b;
+        --card-bg-secondary: #2d3a51;
+        --border-card: #334155;
+        --text-primary: #f8fafc;
+        --text-secondary: #cbd5e1;
+        --text-muted: #94a3b8;
+        --cyan: #22d3ee;
+        --gold: #f4c84a;
+        --green: #0f6143;
+        --red: #953745;
+        --yellow: #cd9b1b;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        background: #111827;
+        color: var(--text-primary);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+          "Segoe UI", sans-serif;
+      }
+
+      .page {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+      }
+
+      .app {
+        width: min(100%, 1380px);
+        min-height: min(860px, calc(100vh - 32px));
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        padding: 16px;
+        background: var(--app-bg);
+        border: 1px solid #1f2937;
+      }
+
+      .header,
+      .footer,
+      .panel,
+      .preview-card,
+      .info-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-card);
+      }
+
+      .header {
+        min-height: 84px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 22px;
+        border-radius: 24px;
+      }
+
+      .logo {
+        color: var(--gold);
+        font-size: clamp(26px, 4vw, 42px);
+        line-height: 0.82;
+        font-weight: 900;
+        letter-spacing: 0;
+        text-transform: uppercase;
+      }
+
+      .theme-toggle {
+        width: 68px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        padding: 4px;
+        border: 1px solid var(--cyan);
+        border-radius: 999px;
+        background: var(--card-bg-secondary);
+      }
+
+      .theme-dot {
+        width: 26px;
+        height: 26px;
+        border-radius: 999px;
+        background: #f8fafc;
+        box-shadow: 0 0 18px rgba(34, 211, 238, 0.45);
+      }
+
+      .main {
+        flex: 1;
+        display: grid;
+        grid-template-columns: minmax(280px, 0.9fr) minmax(360px, 1.4fr);
+        gap: 16px;
+        min-height: 0;
+      }
+
+      .panel {
+        border-radius: 24px;
+        padding: clamp(18px, 3vw, 34px);
+      }
+
+      .start-panel {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 24px;
+      }
+
+      .eyebrow {
+        color: var(--cyan);
+        font-size: 14px;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        max-width: 520px;
+        font-size: clamp(34px, 5.2vw, 72px);
+        line-height: 0.96;
+        letter-spacing: 0;
+      }
+
+      .lead {
+        max-width: 560px;
+        margin: 0;
+        color: var(--text-secondary);
+        font-size: clamp(16px, 2vw, 21px);
+        line-height: 1.45;
+      }
+
+      .start-button {
+        width: min(100%, 320px);
+        min-height: 64px;
+        border: 1px solid #67e8f9;
+        border-radius: 20px;
+        background: linear-gradient(90deg, #0891b2, #22d3ee, #67e8f9);
+        color: #082f49;
+        font-size: 22px;
+        font-weight: 900;
+        cursor: pointer;
+      }
+
+      .stats {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .stat {
+        min-height: 82px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 6px;
+        padding: 12px;
+        border-radius: 16px;
+        background: var(--card-bg-secondary);
+        border: 1px solid var(--border-card);
+      }
+
+      .stat strong {
+        font-size: 24px;
+      }
+
+      .stat span {
+        color: var(--text-muted);
+        font-size: 13px;
+      }
+
+      .preview-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .preview-title {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .preview-title h2 {
+        margin: 0;
+        font-size: clamp(20px, 2.4vw, 30px);
+      }
+
+      .preview-title span {
+        color: var(--text-muted);
+        font-size: 14px;
+      }
+
+      .column-head {
+        display: grid;
+        grid-template-columns: repeat(8, minmax(0, 1fr));
+        gap: 8px;
+        color: var(--text-secondary);
+        font-size: 13px;
+        text-align: center;
+      }
+
+      .preview-card {
+        display: grid;
+        grid-template-columns: repeat(8, minmax(0, 1fr));
+        gap: 8px;
+        padding: 10px;
+        border-radius: 18px;
+        background: var(--card-bg-secondary);
+      }
+
+      .portrait,
+      .feature {
+        aspect-ratio: 7 / 6;
+        min-width: 0;
+        border-radius: 14px;
+        overflow: hidden;
+      }
+
+      .portrait {
+        position: relative;
+        background:
+          linear-gradient(rgba(15, 23, 42, 0.05), rgba(15, 23, 42, 0.76)),
+          url("https://ddragon.leagueoflegends.com/cdn/img/champion/tiles/Aatrox_0.jpg");
+        background-size: cover;
+        background-position: center;
+        border: 1px solid var(--border-card);
+      }
+
+      .portrait span {
+        position: absolute;
+        inset-inline: 0;
+        bottom: 0;
+        padding: 5px;
+        background: rgba(5, 8, 22, 0.72);
+        text-align: center;
+        font-weight: 800;
+      }
+
+      .feature {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px;
+        border: 1px solid rgba(248, 250, 252, 0.28);
+        text-align: center;
+        font-weight: 800;
+      }
+
+      .green {
+        background: var(--green);
+      }
+
+      .red {
+        background: var(--red);
+      }
+
+      .yellow {
+        background: var(--yellow);
+      }
+
+      .info-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .info-card {
+        min-height: 126px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 16px;
+        border-radius: 18px;
+      }
+
+      .info-card strong {
+        font-size: 18px;
+      }
+
+      .info-card p {
+        margin: 0;
+        color: var(--text-muted);
+        font-size: 14px;
+        line-height: 1.35;
+      }
+
+      .footer {
+        min-height: 54px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+        padding: 12px 18px;
+        border-radius: 18px;
+        color: var(--text-muted);
+        font-size: 14px;
+      }
+
+      @media (max-width: 900px) {
+        .app {
+          min-height: auto;
+        }
+
+        .main {
+          grid-template-columns: 1fr;
+        }
+
+        .start-panel {
+          justify-content: flex-start;
+        }
+
+        .stats,
+        .info-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .column-head {
+          display: none;
+        }
+      }
+
+      @media (max-width: 520px) {
+        .page,
+        .app {
+          padding: 8px;
+        }
+
+        .header {
+          min-height: 76px;
+          padding: 14px 16px;
+          border-radius: 22px;
+        }
+
+        .panel {
+          padding: 16px;
+          border-radius: 22px;
+        }
+
+        .preview-card {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+        }
+
+        .footer {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="page">
+      <div class="app">
+        <header class="header">
+          <div class="logo">League<br />of Twist</div>
+          <div class="theme-toggle" aria-label="theme preview">
+            <div class="theme-dot"></div>
+          </div>
+        </header>
+
+        <main class="main">
+          <section class="panel start-panel">
+            <div class="eyebrow">classic champion guessing</div>
+            <h1>Угадай чемпиона по его свойствам</h1>
+            <p class="lead">
+              Выбирай чемпиона, сравнивай подсказки и собирай ответ за десять
+              попыток. Цвета покажут, насколько близко ты подобрался.
+            </p>
+            <button class="start-button" type="button">Начать игру</button>
+
+            <div class="stats">
+              <div class="stat">
+                <strong>10</strong>
+                <span>попыток на партию</span>
+              </div>
+              <div class="stat">
+                <strong>8</strong>
+                <span>свойств для сравнения</span>
+              </div>
+              <div class="stat">
+                <strong>140+</strong>
+                <span>чемпионов в базе</span>
+              </div>
+            </div>
+          </section>
+
+          <section class="panel preview-panel">
+            <div class="preview-title">
+              <h2>Как выглядит раунд</h2>
+              <span>preview</span>
+            </div>
+
+            <div class="column-head">
+              <span>Имя</span>
+              <span>Пол</span>
+              <span>Раса</span>
+              <span>Линия</span>
+              <span>Регион</span>
+              <span>Ресурс</span>
+              <span>Атака</span>
+              <span>Год</span>
+            </div>
+
+            <div class="preview-card">
+              <div class="portrait"><span>Аатрокс</span></div>
+              <div class="feature green">мужской</div>
+              <div class="feature red">даркин</div>
+              <div class="feature red">топ</div>
+              <div class="feature yellow">Шурима</div>
+              <div class="feature red">кровь</div>
+              <div class="feature green">ближний</div>
+              <div class="feature red">2013</div>
+            </div>
+
+            <div class="info-grid">
+              <article class="info-card">
+                <strong>Зеленый</strong>
+                <p>Полное совпадение свойства с загаданным чемпионом.</p>
+              </article>
+              <article class="info-card">
+                <strong>Желтый</strong>
+                <p>Частичное совпадение, если свойство содержит список.</p>
+              </article>
+              <article class="info-card">
+                <strong>Красный</strong>
+                <p>Свойство не совпало. Используй это для отсечения вариантов.</p>
+              </article>
+            </div>
+          </section>
+        </main>
+
+        <footer class="footer">
+          <span>League of Twist · fan project</span>
+          <span>Draft start screen preview</span>
+        </footer>
+      </div>
+    </div>
+  </body>
+</html>

@@ -215,6 +215,17 @@ body {
   margin: 0;
   padding: 0;
 }
+h1,
+h2,
+h3 {
+  color: var(--color-text-primary);
+  font-weight: bold;
+}
+
+p {
+  color: var(--color-text-secondary);
+}
+
 button {
   cursor: pointer;
 }

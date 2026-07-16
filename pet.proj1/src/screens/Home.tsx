@@ -1,6 +1,6 @@
 import { Header } from '@/components/Header/Header';
 import { GuessingGame } from '@/components/GuessingGame/GuessingGame';
-import { StartGame } from '@/components/GuessingGame/StartGame';
+
 import { Footer } from '@/components/Footer/Footer';
 
 function Home() {
@@ -10,7 +10,6 @@ function Home() {
         <Header />
 
         <main className="relative flex min-h-0 w-full flex-1 flex-col">
-          <StartGame />
           <GuessingGame />
         </main>
         <Footer />

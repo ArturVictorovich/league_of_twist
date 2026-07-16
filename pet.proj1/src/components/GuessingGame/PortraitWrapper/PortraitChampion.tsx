@@ -11,7 +11,7 @@ export const PortraitChampion = ({ champion, children }: IProps) => {
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
   const [hasError, setHasError] = useState<boolean>(false);
   return (
-    <div className="relative h-full w-full">
+    <div className="relative h-full w-full overflow-hidden rounded-xl">
       {!isLoaded && !hasError && <PortraitSkeleton />}
       {hasError && <PortraitFullback />}
       <img
@@ -24,7 +24,7 @@ export const PortraitChampion = ({ champion, children }: IProps) => {
           setHasError(true);
         }}
         className={cn(
-          'z-10 h-full w-full rounded-xl object-cover opacity-100',
+          'absolute inset-0 z-10 object-cover transition-opacity duration-300',
           isLoaded ? 'opacity-100' : 'opacity-0',
         )}
         src={champion.image}

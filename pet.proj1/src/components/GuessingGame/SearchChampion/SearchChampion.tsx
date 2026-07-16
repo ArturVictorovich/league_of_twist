@@ -13,7 +13,7 @@ import { cn } from '@/lib/utils/cn';
 
 export const SearchChampion = () => {
   const dispatch = useAppDispatch();
-  const gameStatus = useAppSelector((state) => state.guessingGame.gameStatus);
+
   const availableChampionsList = useAppSelector(
     (state) => state.guessingGame.availableChampionsList,
   );
@@ -63,7 +63,6 @@ export const SearchChampion = () => {
     resetSelectState();
   };
 
-  if (gameStatus !== 'playing') return null;
   return (
     <div className="z-50 w-full sm:w-4/5 lg:w-full">
       <div className="text-text-primary mb-1 min-[390px]:text-lg 2xl:text-xl">
