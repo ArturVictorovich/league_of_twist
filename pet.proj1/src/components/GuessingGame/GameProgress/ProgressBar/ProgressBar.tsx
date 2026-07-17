@@ -11,8 +11,8 @@ const ProgressBar = ({ maxAttempts, attempts }: Props) => {
   const tone = getProgressTone(attempts);
   const label = getProgressLabel(attempts);
   return (
-    <div className="flex flex-col justify-center gap-2 sm:gap-2 sm:px-2">
-      <div className="text-text-muted text-center leading-3 min-[390px]:text-xs sm:text-sm md:text-sm xl:text-base">
+    <div className="flex flex-col justify-center gap-2 p-1 sm:px-3 lg:p-0">
+      <div className="text-text-muted text-center leading-4 min-[390px]:text-base">
         {label}
       </div>
       <div className="grid h-auto w-full grid-cols-10 gap-1">
