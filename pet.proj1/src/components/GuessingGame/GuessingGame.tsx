@@ -15,7 +15,7 @@ import ProgressBar from './GameProgress/ProgressBar/ProgressBar';
 import { MAX_ATTEMPTS } from '@/constants';
 import { Attempts } from './GameProgress/Attempts';
 import { useEffect, useState } from 'react';
-import { StartGame } from './StartGame';
+
 export const GuessingGame = () => {
   const [endReveal, setEndReveal] = useState<boolean>(false);
   const dispatch = useAppDispatch();
@@ -50,13 +50,11 @@ export const GuessingGame = () => {
   const attempts = guessedChampionsList.length;
   const isFFEnabled =
     gameStatus === 'playing' && guessedChampionsList.length > 3;
-  if (gameStatus === 'idle') {
-    return <StartGame gameStatus={gameStatus} />;
-  }
+
   return (
     <div className="gGame bg-bg relative flex min-h-0 w-full flex-1 lg:min-h-0 lg:overflow-hidden">
       <div className="flex w-full flex-col gap-3 lg:flex-row 2xl:gap-5">
-        <aside className="lg:bg-card-bg relative flex flex-col items-center gap-3 pt-10 md:w-full md:rounded-2xl lg:m-0 lg:w-4/14 lg:gap-4 lg:px-2.5 xl:w-4/12 xl:gap-4 xl:px-5 2xl:w-3/10 2xl:gap-5 2xl:p-5 2xl:pt-15">
+        <aside className="lg:bg-card-bg lg:border-border-card relative flex flex-col items-center gap-3 pt-10 md:w-full md:rounded-2xl lg:m-0 lg:w-4/14 lg:gap-4 lg:border lg:px-2.5 xl:w-4/12 xl:gap-4 xl:px-5 2xl:w-3/10 2xl:gap-5 2xl:p-5 2xl:pt-15">
           <SearchChampion />
           <div className="flex w-full justify-between gap-3 sm:w-4/5 lg:w-full">
             <div className="bg-card-bg md:bg-card-bg-secondary border-border-card flex h-12 w-full max-w-9/12 items-center justify-center gap-2 rounded-3xl border px-3 min-[390px]:h-15 sm:gap-4 md:px-4 lg:w-full 2xl:px-5">
@@ -92,7 +90,7 @@ export const GuessingGame = () => {
           </div>
         </aside>
 
-        <section className="lg:bg-card-bg w-full md:flex md:min-h-0 md:flex-1 md:flex-col md:rounded-2xl lg:min-h-0 lg:overflow-hidden lg:p-2 xl:p-3 2xl:gap-4 2xl:p-4">
+        <section className="lg:bg-card-bg lg:border-border-card w-full md:flex md:min-h-0 md:flex-1 md:flex-col md:rounded-2xl lg:min-h-0 lg:overflow-hidden lg:border lg:p-2 xl:p-3 2xl:gap-4 2xl:p-4">
           <ColumnHeader guessedChampionsList={guessedChampionsList} />
           <CardList
             onRevealEnd={() => setEndReveal(true)}

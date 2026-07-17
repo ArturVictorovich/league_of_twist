@@ -9,7 +9,7 @@ export const CardWrapper = ({ children, className, ...props }: IProps) => {
   return (
     <div
       className={cn(
-        `border-border-card bg-card-bg-secondary rounded-xl border p-2`,
+        `border-border-card bg-card-bg-secondary overflow-hidden rounded-xl border p-2`,
         className,
       )}
       {...props}

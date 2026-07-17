@@ -216,12 +216,9 @@ body {
   padding: 0;
 }
 h1,
-h2,
-h3 {
-  color: var(--color-text-primary);
+h2 {
   font-weight: bold;
 }
-
 p {
   color: var(--color-text-secondary);
 }

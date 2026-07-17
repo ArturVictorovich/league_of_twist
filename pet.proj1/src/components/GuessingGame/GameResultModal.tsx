@@ -31,7 +31,7 @@ export const GameResultModal = ({
     >
       <div
         className={cn(
-          'flex w-8/10 animate-[card-drop_0.60s_ease-out_forwards] items-center justify-center rounded-xl p-0.5 sm:w-6/10 lg:w-3/10',
+          'flex w-8/10 animate-[card-drop_0.60s_ease-out_forwards] items-center justify-center rounded-xl p-0.5 sm:w-6/10 lg:w-3/10 2xl:w-1/5',
           isWin
             ? 'bg-(image:--gradient-modal-success)'
             : 'bg-(image:--gradient-modal-danger)',

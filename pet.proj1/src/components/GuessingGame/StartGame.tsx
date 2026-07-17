@@ -1,21 +1,19 @@
 import { startGameThunk } from '@/redux/GuessingGame/guessingGame.thunks';
 import { Button } from '../ui/Button';
 import { useAppDispatch } from '@/shared/hooks/redux';
-import type { TGameStatus } from '@/redux/GuessingGame/guessingGame.slice';
+
 import { CardWrapper } from '../ui/CardWrapper';
-interface IProps {
-  gameStatus: TGameStatus;
-}
-export const StartGame = ({ gameStatus }: IProps) => {
+
+export const StartGame = () => {
   const dispatch = useAppDispatch();
   const handleStartGame = () => {
     dispatch(startGameThunk());
   };
-  if (gameStatus !== 'idle') return null;
+
   return (
-    <div className="border-border-card bg-card-bg flex flex-col items-center justify-between gap-5 rounded-xl border p-3 lg:p-5">
-      <div className="">
-        <h1 className="mb-3 text-3xl font-semibold">
+    <div className="SG bg-card-bg flex flex-1 flex-col items-center justify-evenly gap-4 p-4 sm:gap-8 sm:p-13 lg:border-0 lg:p-3 xl:p-4">
+      <div className="min-[390px]:text-lg">
+        <h1 className="text-text-primary mb-3 text-3xl font-semibold sm:mb-5 xl:text-4xl">
           Угадай чемпиона по его свойствам
         </h1>
         <p>
@@ -23,17 +21,17 @@ export const StartGame = ({ gameStatus }: IProps) => {
           насколько близко ты подобрался. Количество попыток ограничено, удачи!
         </p>
       </div>
-      <div className="w-4/5 sm:w-3/5">
+      <div className="w-4/5 sm:w-3/5 lg:w-5/6">
         <Button
           title="Начать игру"
           type="button"
           onClick={handleStartGame}
-          className="transform bg-(image:--gradient-button) text-lg font-bold"
+          className="transform animate-[title-pulse_1.2s_ease-in-out_infinite] bg-(image:--gradient-button) text-lg font-bold"
         >
           Начать игру
         </Button>
       </div>
-      <div className="grid grid-cols-3 gap-2 text-sm">
+      <div className="text-text-primary grid grid-cols-3 gap-2 text-sm min-[390px]:text-base sm:gap-4 lg:text-[13px] xl:text-lg">
         <CardWrapper className="border">
           <h2>10</h2>
           <p>попыток на партию</p>
