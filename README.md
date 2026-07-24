@@ -62,11 +62,13 @@ src/
 ## Скрипты
 
 ```bash
-npm run dev     # запуск dev-сервера
-npm run build   # production-сборка
-npm run preview # предпросмотр сборки
-npm run lint    # проверка ESLint
-npm run format  # форматирование Prettier
+npm run dev         # запуск dev-сервера
+npm run build       # production-сборка
+npm run preview     # предпросмотр сборки
+npm run lint        # проверка ESLint
+npm run format      # форматирование Prettier
+npm run test        # запуск тестов в watch-режиме
+npm run test:run    # запускает тесты один раз
 ```
 
 ## Запуск проекта
