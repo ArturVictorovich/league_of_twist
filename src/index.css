@@ -1,0 +1,330 @@
+@import 'tailwindcss';
+
+/* Настраиваем переключение тёмной темы по классу .dark */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --gradient-button: linear-gradient(
+    90deg,
+    #0891b2 0%,
+    #22d3ee 55%,
+    #67e8f9 100%
+  );
+  --gradient-modal-danger: linear-gradient(
+    180deg,
+    #e11d48 22%,
+    #38bdf8 50%,
+    #e11d48 78%
+  );
+  --gradient-modal-success: linear-gradient(
+    180deg,
+    #059669 22%,
+    #38bdf8 50%,
+    #059669 78%
+  );
+  --app-bg: #dbeafe;
+  --card-bg: #f8fafc;
+  --card-bg-secondary: #e0f2fe;
+  --border-card: #94a3b8;
+
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+
+  --color-cyan: #0891b2;
+  --color-cyan-light: #06b6d4;
+  --color-cyan-dark: #0e7490;
+  --color-success: #059669;
+  --color-warning: #d97706;
+  --color-danger: #e11d48;
+
+  --btn-ff-bg: #ffe4e6;
+  --btn-ff-border: #fb7185;
+  --btn-ff-text: #881337;
+
+  --select-control-bg: #f8fafc;
+  --select-control-border: #94a3b8;
+  --select-control-border-focused: #0891b2;
+  --select-control-shadow-focused: #22d3ee66;
+
+  --select-text: #0f172a;
+  --select-placeholder: #64748b;
+
+  --select-menu-bg: #f8fafc;
+  --select-menu-border: #94a3b8;
+
+  --select-option-text: #0f172a;
+  --select-option-bg: #f8fafc;
+
+  --select-option-bg-focused: #e0f2fe;
+  --select-option-text-focused: #0f172a;
+  --select-option-border-focused: #0891b2;
+
+  --select-option-bg-selected: #bae6fd;
+  --select-option-text-selected: #0c4a6e;
+
+  --select-icon: #64748b;
+  --select-icon-focused: #0891b2;
+
+  --btn-disabled-bg: #e2e8f0;
+  --btn-disabled-border: #cbd5e1;
+  --btn-disabled-text: #64748b;
+
+  --success-green: #10b981;
+  --warning-yellow: #f59e0b;
+  --danger-red: #f43f5e;
+
+  --hint-green-bg: #bbf7d0;
+  --hint-green-border: #22c55e;
+  --hint-green-text: #14532d;
+
+  --hint-yellow-bg: #fde68a;
+  --hint-yellow-border: #f59e0b;
+  --hint-yellow-text: #713f12;
+
+  --hint-red-bg: #fecdd3;
+  --hint-red-border: #fb7185;
+  --hint-red-text: #881337;
+}
+
+.dark {
+  --gradient-modal-danger: linear-gradient(
+    180deg,
+    #c31e36 30%,
+    #b1bcbd 50%,
+    #c31e36 70%
+  );
+  --gradient-modal-success: linear-gradient(
+    180deg,
+    #08754d 30%,
+    #b1bcbd 50%,
+    #08754d 70%
+  );
+
+  --app-bg: #050816;
+  --card-bg: #1e293b;
+  --card-bg-secondary: #2d3a51;
+  --border-card: #334155;
+
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+
+  --color-cyan: #22d3ee;
+  --color-cyan-light: #67e8f9;
+  --color-cyan-dark: #0891b2;
+  --color-success: #34d399;
+  --color-warning: #fbbf24;
+  --color-danger: #fb7185;
+
+  --btn-ff-bg: rgba(244, 63, 94, 0.12);
+  --btn-ff-border: rgba(251, 113, 133, 0.4);
+  --btn-ff-text: #f8fafc;
+
+  --select-control-bg: #050816;
+  --select-control-border: #334155;
+  --select-control-border-focused: #67e8f9;
+  --select-control-shadow-focused: #22d3ee66;
+
+  --select-text: #f8fafc;
+  --select-placeholder: #94a3b8;
+
+  --select-menu-bg: #111827;
+  --select-menu-border: #334155;
+
+  --select-option-text: #f8fafc;
+  --select-option-bg: #111827;
+
+  --select-option-bg-focused: #1e293b;
+  --select-option-text-focused: #f8fafc;
+  --select-option-border-focused: #67e8f9;
+
+  --select-option-bg-selected: #164e63;
+  --select-option-text-selected: #f8fafc;
+
+  --select-icon: #94a3b8;
+  --select-icon-focused: #67e8f9;
+
+  --btn-disabled-bg: #1e293b;
+  --btn-disabled-border: #334155;
+  --btn-disabled-text: #94a3b8;
+
+  --success-green: #08754d;
+  --warning-yellow: #cd9b1b;
+  --danger-red: #c31e36;
+
+  --hint-green-bg: #0f6143;
+  --hint-green-border: #50d5a4;
+  --hint-green-text: #f8fafc;
+
+  --hint-yellow-bg: #cd9b1b;
+  --hint-yellow-border: #fcd34d;
+  --hint-yellow-text: #f8fafc;
+
+  --hint-red-bg: #953745;
+  --hint-red-border: #fca5a5;
+  --hint-red-text: #f8fafc;
+}
+
+@theme inline {
+  --color-app-bg: var(--app-bg);
+  --color-card-bg: var(--card-bg);
+  --color-card-bg-secondary: var(--card-bg-secondary);
+  --color-border-card: var(--border-card);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  --color-cyan: var(--color-cyan);
+  --color-cyan-light: var(--color-cyan-light);
+  --color-cyan-dark: var(--color-cyan-dark);
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-danger: var(--color-danger);
+  --color-btn-ff-bg: var(--btn-ff-bg);
+  --color-btn-ff-border: var(--btn-ff-border);
+  --color-btn-ff-text: var(--btn-ff-text);
+
+  --color-select-control-bg: var(--select-control-bg);
+  --color-select-control-border: var(--select-control-border);
+  --color-select-control-border-focused: var(--select-control-border-focused);
+  --color-select-control-shadow-focused: var(--select-control-shadow-focused);
+  --color-select-text: var(--select-text);
+  --color-select-placeholder: var(--select-placeholder);
+  --color-select-menu-bg: var(--select-menu-bg);
+  --color-select-menu-border: var(--select-menu-border);
+  --color-select-option-text: var(--select-option-text);
+  --color-select-option-bg: var(--select-option-bg);
+  --color-select-option-bg-focused: var(--select-option-bg-focused);
+  --color-select-option-text-focused: var(--select-option-text-focused);
+  --color-select-option-border-focused: var(--select-option-border-focused);
+  --color-select-option-bg-selected: var(--select-option-bg-selected);
+  --color-select-option-text-selected: var(--select-option-text-selected);
+  --color-select-icon: var(--select-icon);
+  --color-select-icon-focused: var(--select-icon-focused);
+  --color-btn-disabled-bg: var(--btn-disabled-bg);
+  --color-btn-disabled-border: var(--btn-disabled-border);
+  --color-btn-disabled-text: var(--btn-disabled-text);
+
+  --color-success-green: var(--success-green);
+  --color-warning-yellow: var(--warning-yellow);
+  --color-danger-red: var(--danger-red);
+
+  --color-hint-green-bg: var(--hint-green-bg);
+  --color-hint-green-border: var(--hint-green-border);
+  --color-hint-green-text: var(--hint-green-text);
+  --color-hint-yellow-bg: var(--hint-yellow-bg);
+  --color-hint-yellow-border: var(--hint-yellow-border);
+  --color-hint-yellow-text: var(--hint-yellow-text);
+  --color-hint-red-bg: var(--hint-red-bg);
+  --color-hint-red-border: var(--hint-red-border);
+  --color-hint-red-text: var(--hint-red-text);
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+h1,
+h2 {
+  font-weight: bold;
+}
+p {
+  color: var(--color-text-secondary);
+}
+
+button {
+  cursor: pointer;
+}
+
+/* пульсация заголовка */
+@keyframes title-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.06);
+    opacity: 0.85;
+  }
+}
+/* анимация появления карточки  */
+@keyframes card-drop {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateY(6px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes feature-reveal {
+  0% {
+    opacity: 0;
+    transform: rotateX(80deg) scale(0.96);
+  }
+
+  60% {
+    opacity: 1;
+    transform: rotateX(-6deg) scale(1.02);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotateX(0) scale(1);
+  }
+}
+
+.cardAnimation {
+  animation-name: card-drop;
+  animation-duration: 500ms;
+  animation-delay: 100ms;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
+.featureAnimation {
+  animation-name: feature-reveal;
+  animation-timing-function: ease-out;
+  animation-duration: 700ms;
+  animation-fill-mode: both;
+}
+
+@layer base {
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  .scrollbar-custom::-webkit-scrollbar {
+    width: 3px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #0f172a; /* slate-900 */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #334155; /* slate-700 */
+    border-radius: 999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+  }
+  .scrollbar-hidden {
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hidden::-webkit-scrollbar {
+    display: none;
+  }
+}
