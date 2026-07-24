@@ -23,7 +23,7 @@ export const Footer = () => {
         <span className="text-text-muted/60">·</span>
 
         <a
-          href="https://github.com/ArturVictorovich/some_code/tree/main/pet.proj1"
+          href="https://github.com/ArturVictorovich/league_of_twist"
           target="_blank"
           rel="noreferrer"
           className="text-cyan hover:text-cyan-light transition-colors"
